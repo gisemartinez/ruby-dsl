@@ -1,1 +1,5 @@
+# JetBrains .idea directory:
+tp-1-grupal/.idea/*
 
+# File-based project format:
+tp-1-grupal/*.iws
