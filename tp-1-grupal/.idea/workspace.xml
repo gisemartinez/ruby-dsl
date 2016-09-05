@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fa9d80c7-2b01-4c23-a736-c80b8a169acb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/tadspec_spec.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tadspec.rb" />
-    </list>
+    <list default="true" id="fa9d80c7-2b01-4c23-a736-c80b8a169acb" name="Default" comment="" />
     <ignored path="tp-1-grupal.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -278,12 +273,12 @@
       <workItem from="1473089148166" duration="223000" />
       <workItem from="1473089374372" duration="17000" />
       <workItem from="1473089407733" duration="19000" />
-      <workItem from="1473089428275" duration="807000" />
+      <workItem from="1473089428275" duration="938000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1066000" />
+    <option name="totallyTimeSpent" value="1197000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
