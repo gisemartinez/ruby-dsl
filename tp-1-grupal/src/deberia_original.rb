@@ -1,5 +1,10 @@
 module MetodoDeberia
 
+  # TODO:
+  #    - ser sin parámetro alguno
+  #    - tener_atributo
+  #    - ser_consulta?
+
   #7.deberia(self.ser(7))
   #7.deberia ser 7
   #return if 7 == 7
@@ -41,8 +46,10 @@ module MetodoDeberia
   #-----------------------------------
   #  CONFIGURACIONES:
   #-----------------------------------
+
   def ser(verificacion_de_rango)
     begin
+      # 'self' ejecuta la consulta de su argumento:
       verificacion_de_rango
     rescue AssertionError => mensaje
       raise AssertionError, mensaje
@@ -55,14 +62,19 @@ module MetodoDeberia
     end
   end
 
-  def explotar_con(excepcion)
-    # --- completar ---
-    #unless TODO
-     # raise AssertionError, "Se esperaba que #{self} explotara con la excepción '#{excepcion}'."
-    #end
+  def explotar_con(nombre_excepcion)
+    metodo = self.to_proc.clone
+    begin
+      metodo.call
+    rescue nombre_excepcion
+    else
+      # entra acá si no se produjo la excepción indicada
+        raise AssertionError, "Se esperaba que #{self} explotara con la excepción '#{excepcion}'."
+    end
   end
 
   def deberia(configuracion)
+    # 'self' ejecuta la configuración de sus argumento:
     configuracion
   end
 

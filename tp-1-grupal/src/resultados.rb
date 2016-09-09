@@ -6,15 +6,15 @@ class ResultadoTest
   end
 
   def test_paso(suite, test)
-    self.resultados << TestPaso.new(suite, test)
+    self.resultados.push TestPaso.new(suite, test)
   end
 
   def test_fallo(suite, test, excepcion)
-    self.resultados << TestFallo.new(suite, test, excepcion)
+    self.resultados.push TestFallo.new(suite, test, excepcion)
   end
 
   def test_exploto(suite, test, excepcion)
-    self.resultados << TestExploto.new(suite, test, excepcion)
+    self.resultados.push TestExploto.new(suite, test, excepcion)
   end
 
   def fallo?(suite, test)
@@ -29,10 +29,6 @@ class ResultadoTest
     self.resultados.any? { |resultado| resultado.exploto? suite, test }
   end
 
-  def resultados_totales
-    self.resultados.length
-  end
-
   def resultados_que_fallaron
     self.resultados.select { |resultado| resultado.is_a?(TestFallo) }
   end
@@ -42,6 +38,7 @@ class ResultadoTest
   end
 
   def informar_errores
+    # Pide información sobre los errores de aserción y los anormales:
     self.resultados.each do |resultado|
       resultado.informar_error
     end
@@ -49,8 +46,8 @@ class ResultadoTest
 
   # --- Informa por consola los resultados de la ejecución de los tests:
   def informar_ejecucion
+    puts "Se corrieron #{self.resultados.length} tests. #{self.resultados_que_pasaron.length} tests pasaron, #{self.resultados_que_fallaron.length} tests fallaron."
     self.informar_errores
-    puts "Se corrieron #{self.resultados_totales} tests. #{self.resultados_que_pasaron.length} tests pasaron, #{self.resultados_que_fallaron.length} tests fallaron."
   end
 
 end
@@ -84,8 +81,8 @@ end
 # TIPOS DE RESULTADOS PARA LOS TESTS:
 class TestPaso < TestEstadoFinal
   def initialize(suite, test)
-    self.test= test
-    self.suite= suite
+    self.suite = suite
+    self.test = test
   end
 
   def paso?(suite, test)
@@ -98,9 +95,9 @@ class TestFallo < TestEstadoFinal
   attr_accessor :excepcion
 
   def initialize(suite, test, excepcion)
-    self.test= test
-    self.suite= suite
-    self.excepcion= excepcion
+    self.suite = suite
+    self.test = test
+    self.excepcion = excepcion
   end
 
   def fallo?(a_class, test)
@@ -108,7 +105,7 @@ class TestFallo < TestEstadoFinal
   end
 
   def informar_error
-    puts "El test #{self.test} ha explotado con el error: #{self.excepcion.message}"
+    puts "El test #{self.test} ha explotado con el error: '#{self.excepcion.message}'."
     puts self.excepcion.backtrace.join("\n")
     puts "\n"
   end
@@ -116,7 +113,6 @@ class TestFallo < TestEstadoFinal
 end
 
 class TestExploto < TestFallo
-
   def fallo?(suite, test)
     false
   end
