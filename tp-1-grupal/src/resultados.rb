@@ -1,3 +1,6 @@
+require 'colorize'
+require 'colorized_string'
+
 class ResultadoTest
   attr_accessor :resultados
 
@@ -37,6 +40,10 @@ class ResultadoTest
     self.resultados.select { |resultado| resultado.is_a?(TestPaso) }
   end
 
+  def resultados_que_explotaron
+    self.resultados.select { |resultado| resultado.is_a?(TestExploto) }
+  end
+
   def informar_errores
     # Pide información sobre los errores de aserción y los anormales:
     self.resultados.each do |resultado|
@@ -46,7 +53,11 @@ class ResultadoTest
 
   # --- Informa por consola los resultados de la ejecución de los tests:
   def informar_ejecucion
-    puts "Se corrieron #{self.resultados.length} tests. #{self.resultados_que_pasaron.length} tests pasaron, #{self.resultados_que_fallaron.length} tests fallaron."
+    puts "Se corrieron #{self.resultados.length} tests --> "
+      + "#{self.resultados_que_pasaron.length} tests pasaron. ".colorize(:green)
+      + "#{self.resultados_que_fallaron.length} tests fallaron.".colorize(:yellow)
+      + "#{self.resultados_que_explotaron.length} tests explotaron.".colorize(:red)
+    puts "\n" + "Informe de errores -->" + "\n"
     self.informar_errores
   end
 
@@ -105,9 +116,8 @@ class TestFallo < TestEstadoFinal
   end
 
   def informar_error
-    puts "El test #{self.test} ha explotado con el error: '#{self.excepcion.message}'."
-    puts self.excepcion.backtrace.join("\n")
-    puts "\n"
+    puts "El test '#{self.test}' ha explotado con el error: '#{self.excepcion.message}'.".colorize(:red)
+    puts self.excepcion.backtrace.join("\n") + "\n"
   end
 
 end

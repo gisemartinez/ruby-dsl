@@ -21,7 +21,8 @@ class TADsPec
     tests = args.shift
     correr_coleccion_de_tests(suite, tests, resultado)
     end
-    resultado
+    resultado.informar_ejecucion
+    nil
   end
 
   def testear_suite_completa(suite, resultado)
@@ -38,8 +39,8 @@ class TADsPec
   end
 
   def obtener_tests_de(suite)
-    suite.instance_methods.
-        select { | metodo | es_un_test(metodo) }
+    metodos = suite.instance_methods(false)
+    metodos.select { | metodo | es_un_test(metodo) }
   end
 
   def es_un_test(metodo)

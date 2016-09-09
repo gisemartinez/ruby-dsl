@@ -26,7 +26,7 @@ module MetodoDeberia
 
   def mayor_a(valor)
     unless valor < self
-      raise AssertionError, "Se esperaba que #{self} fuera mayor que #{valor}."
+      raise AssertionError, "Se esperaba que '#{self}' fuera mayor que #{valor}."
     end
   end
 
