@@ -1,5 +1,5 @@
 class ResultadoTest
-  attr_accessor :resultados, :comienzo_ejecucion, :fin_ejecucion
+  attr_accessor :resultados
 
   def initialize
     self.resultados = []
@@ -34,35 +34,33 @@ class ResultadoTest
   end
 
   def resultados_que_fallaron
-    total = self.resultados.select { |resultado| resultado.is_a?(TestFallo) }
-    total.length
+    self.resultados.select { |resultado| resultado.is_a?(TestFallo) }
   end
 
   def resultados_que_pasaron
-    total = self.resultados.select { |resultado| resultado.is_a?(TestPaso) }
-    total.length
+    self.resultados.select { |resultado| resultado.is_a?(TestPaso) }
   end
 
-  def reportar_errores
+  def informar_errores
     self.resultados.each do |resultado|
-      resultado.reportar_error
+      resultado.informar_error
     end
   end
 
-  # --- Reporta por consola los resultados de la ejecución de los tests:
-  def reportar
-    self.reportar_errores
-    puts "Se corrieron #{self.resultados_totales} tests. #{self.resultados_que_pasaron} tests pasaron, #{self.resultados_que_fallaron} tests fallaron."
+  # --- Informa por consola los resultados de la ejecución de los tests:
+  def informar_ejecucion
+    self.informar_errores
+    puts "Se corrieron #{self.resultados_totales} tests. #{self.resultados_que_pasaron.length} tests pasaron, #{self.resultados_que_fallaron.length} tests fallaron."
   end
 
 end
 
 class TestEstadoFinal
-  attr_accessor :suite, :metodo
+  attr_accessor :suite, :test
 
   # --- REDEFINICIÓN DEL 'eql?'
   def eql?(receptor)
-    self.suite == receptor.suite && self.metodo == receptor.metodo
+    self.suite == receptor.suite && self.test == receptor.test
   end
 
   # --- ESTADOS DEFAULT:
@@ -78,16 +76,16 @@ class TestEstadoFinal
     false
   end
 
-  def reportar_error
+  def informar_error
   end
 
 end
 
 # TIPOS DE RESULTADOS PARA LOS TESTS:
 class TestPaso < TestEstadoFinal
-  def initialize(suite, metodo)
-    self.metodo = metodo
-    self.suite = suite
+  def initialize(suite, test)
+    self.test= test
+    self.suite= suite
   end
 
   def paso?(suite, test)
@@ -99,18 +97,18 @@ end
 class TestFallo < TestEstadoFinal
   attr_accessor :excepcion
 
-  def initialize(suite, metodo, excepcion)
-    self.metodo = metodo
-    self.suite = suite
-    self.excepcion = excepcion
+  def initialize(suite, test, excepcion)
+    self.test= test
+    self.suite= suite
+    self.excepcion= excepcion
   end
 
   def fallo?(a_class, test)
     self.eql? TestFallo.new suite, test, nil
   end
 
-  def reportar_error
-    puts "El test #{self.metodo} ha explotado con el error: #{self.excepcion.message}"
+  def informar_error
+    puts "El test #{self.test} ha explotado con el error: #{self.excepcion.message}"
     puts self.excepcion.backtrace.join("\n")
     puts "\n"
   end
