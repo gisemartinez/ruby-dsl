@@ -5,28 +5,22 @@ module MetodoDeberia
   #    - tener_atributo
   #    - ser_consulta?
 
-  #7.deberia(self.ser(7))
-  #7.deberia ser 7
-  #return if 7 == 7
-  #true
-
-  #7.deberia(self.ser(self.menor_a(7)))
-  #7.deberia ser mayor_a 7
-  #return if 7 > 7
-  #false
+  #En el contexto de una suite:
+  #(1) unaSuite.mayor_a(3)
+  #(2) unaSuite.ser(1)
+  #(3) 7.deberia(2)
+  # 7.deberia(ser(mayor_a(3)))
 
   #-----------------------------------
   #  PARAMÉTROS DE LAS CONFIGURACIONES:
   #-----------------------------------
   def menor_a(valor)
-    puts " Soy self: #{self}."
     unless valor > self
       raise AssertionError, "Se esperaba que #{self} fuera menor que #{valor}."
     end
   end
 
   def mayor_a(valor)
-    puts " Soy self: #{self}."
     unless valor < self
       raise AssertionError, "Se esperaba que '#{self}' fuera mayor que #{valor}."
     end

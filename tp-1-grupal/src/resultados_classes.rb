@@ -33,7 +33,7 @@ class ResultadoTest
   end
 
   def resultados_que_fallaron
-    self.resultados.select { |resultado| resultado.is_a?(TestFallo) }
+    self.resultados.select { |resultado| resultado.class == TestFallo }
   end
 
   def resultados_que_pasaron

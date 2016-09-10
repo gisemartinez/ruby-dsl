@@ -1,6 +1,6 @@
-require '../src/deberia_original'
-require '../src/resultados'
-require '../src/suites_de_prueba'
+require '../src/deberia_module'
+require '../src/resultados_classes'
+require '../rspec/suites_de_prueba'
 
 # Clase principal para el frameework de testeo:
 class TADsPec
