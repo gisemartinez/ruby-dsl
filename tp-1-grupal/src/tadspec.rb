@@ -17,12 +17,13 @@ class TADsPec
       self.testear_suite_completa suite, resultado
     else
       # testea los tests indicados de una suite dada
-    suite = args.first
-    tests = args.shift
+    suite = args.shift
+    tests = args
     correr_coleccion_de_tests(suite, tests, resultado)
     end
     resultado.informar_ejecucion
-    nil
+    resultado # --> para testear con 'rspec'
+    # nil --> para correrlo por consolta
   end
 
   def testear_suite_completa(suite, resultado)
@@ -32,8 +33,8 @@ class TADsPec
   end
 
   def preparar_para_testeo(suite)
-    # Le hace entender a la suite el mensaje 'deberia':
-   suite.class_eval do
+    # Le hace entender a cualquier objeto del contexto el mensaje 'deberia':
+   Object.class_eval do
       include MetodoDeberia
     end
   end

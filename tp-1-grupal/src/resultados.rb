@@ -53,10 +53,11 @@ class ResultadoTest
 
   # --- Informa por consola los resultados de la ejecución de los tests:
   def informar_ejecucion
-    puts "Se corrieron #{self.resultados.length} tests --> "
-      + "#{self.resultados_que_pasaron.length} tests pasaron. ".colorize(:green)
-      + "#{self.resultados_que_fallaron.length} tests fallaron.".colorize(:yellow)
-      + "#{self.resultados_que_explotaron.length} tests explotaron.".colorize(:red)
+    puts "\n" + "<< Reporte de TADsPEC >>".colorize(:blue)
+    puts "\n" + "Se corrieron #{self.resultados.length} tests --> "
+    puts "- #{self.resultados_que_pasaron.length} tests pasaron. ".colorize(:green)
+    puts "- #{self.resultados_que_fallaron.length} tests fallaron.".colorize(:yellow)
+    puts "- #{self.resultados_que_explotaron.length} tests explotaron.".colorize(:red)
     puts "\n" + "Informe de errores -->" + "\n"
     self.informar_errores
   end

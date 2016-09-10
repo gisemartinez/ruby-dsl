@@ -19,18 +19,20 @@ module MetodoDeberia
   #  PARAMÉTROS DE LAS CONFIGURACIONES:
   #-----------------------------------
   def menor_a(valor)
+    puts " Soy self: #{self}."
     unless valor > self
       raise AssertionError, "Se esperaba que #{self} fuera menor que #{valor}."
     end
   end
 
   def mayor_a(valor)
+    puts " Soy self: #{self}."
     unless valor < self
       raise AssertionError, "Se esperaba que '#{self}' fuera mayor que #{valor}."
     end
   end
 
-  def es_uno_de(*varargs)
+  def uno_de_estos(*varargs)
     if varargs.first.class.is_a?(Array)
       unless varargs.first.include?(self)
         raise AssertionError, "Se esperaba que #{self} estuviese contenido en '#{varargs.first}'."
@@ -47,12 +49,21 @@ module MetodoDeberia
   #  CONFIGURACIONES:
   #-----------------------------------
 
-  def ser(verificacion_de_rango)
-    begin
-      # 'self' ejecuta la consulta de su argumento:
-      verificacion_de_rango
-    rescue AssertionError => mensaje
-      raise AssertionError, mensaje
+  def ser(argumento)
+    if argumento.is_a?(Object)
+      begin
+        self == arg
+      rescue AssertionError => mensaje
+        raise AssertionError, mensaje
+      end
+    else
+      begin
+       # ejecuta la consulta recibida como parámetro:
+        verificacion_de_rango = argumento
+        self.instance_eval { verificacion_de_rango }
+     rescue AssertionError => mensaje
+        raise AssertionError, mensaje
+      end
     end
   end
 
@@ -74,8 +85,8 @@ module MetodoDeberia
   end
 
   def deberia(configuracion)
-    # 'self' ejecuta la configuración de sus argumento:
-    configuracion
+    # ejecuta la configuración recibida como parámetro:
+    self.instance_eval { configuracion }
   end
 
 end
