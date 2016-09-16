@@ -15,25 +15,19 @@ class Persona
 end
 
 class MiSuiteDeTests
+  # Total: 8
+  # Pasan: 6
+  # Fallan: 4
+  # Explotan: 0
+
   # pasa
   def testear_que_7_es_7
     7.deberia ser 7
   end
 
-  # falla
-  def testear_que_true_es_false
-    true.deberia ser false
-  end
-
   # pasa
   def testear_que_7_es_mayor_a_3
     7.deberia(ser(mayor_a(3)))
-  end
-
-  # falla
-  def testear_que_la_edad_de_juan_es_25
-    juan = Persona.new(22)
-    juan.edad.deberia ser 25
   end
 
   # pasa
@@ -47,7 +41,7 @@ class MiSuiteDeTests
     juan = Persona.new(22)
     juan.edad.deberia ser menor_a 25
   end
-=begin
+
   # pasa
   def testear_que_juan_tiene_edad_en_el_rango_lista
     juan = Persona.new(22)
@@ -59,7 +53,35 @@ class MiSuiteDeTests
     juan = Persona.new(22)
     juan.edad.deberia ser uno_de_estos 7, 22, "hola"
   end
-=end
+
+  # falla
+  def testear_que_true_es_false
+    true.deberia ser false
+  end
+
+  # falla
+  def testear_que_la_edad_de_juan_es_25
+    juan = Persona.new(22)
+    juan.edad.deberia ser 25
+  end
+
+  # se ignora
+  def metodo_que_no_es_un_test
+    1 + 2 + 3
+  end
+
+=begin
+  # falla
+  def testear_que_explota_la_division_por_cero
+    { 7 / 0 }.deberia explotar_con ZeroDivisionError
+  end
+
+  # falla
+  def testear_que_juan_explota_con_nombre
+    juan = Persona.new(22)
+    { juan.nombre }.deberia explotar_con Error
+  end
+
   # pasa
   def testear_que_juan_entiende_consulta_es_viejo
     juan = Persona.new(22)
@@ -70,11 +92,6 @@ class MiSuiteDeTests
   def testear_que_juan_entiende_consulta_nombre
     juan = Persona.new(22)
     juan.deberia entender :nombre
-  end
-
-  # se ignora
-  def metodo_que_no_es_un_test
-    1 + 2 + 3
   end
 
 =begin
@@ -114,16 +131,6 @@ class MiSuiteDeTests
     juan.deberia tener_edad uno_de_estos [7, 22, "hola"]
   end
 
-  # falla
-  def testear_que_explota_la_division_por_cero
-    { 7 / 0 }.deberia explotar_con ZeroDivisionError
-  end
-
-  # falla
-  def testear_que_juan_explota_con_nombre
-    juan = Persona.new(22)
-    { juan.nombre }.deberia explotar_con Error
-  end
 =end
 
 end
