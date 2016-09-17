@@ -25,6 +25,11 @@ class MiSuiteDeTests
     true.deberia ser false
   end
 
+  # pasa
+  def testear_que_7_es_mayor_a_3
+    7.deberia(ser(mayor_a(3)))
+  end
+
   # falla
   def testear_que_la_edad_de_juan_es_25
     juan = Persona.new(22)
