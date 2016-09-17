@@ -35,7 +35,7 @@ class TADsPec
   def preparar_para_testeo(suite)
     # Le hace entender a cualquier objeto del contexto el mensaje 'deberia':
    Object.class_eval do
-      include MetodoDeberia
+      include
     end
   end
 
