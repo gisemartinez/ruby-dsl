@@ -58,7 +58,8 @@ class ResultadoTest
     puts "- #{self.resultados_que_pasaron.length} tests pasaron. ".colorize(:green)
     puts "- #{self.resultados_que_fallaron.length} tests fallaron.".colorize(:yellow)
     puts "- #{self.resultados_que_explotaron.length} tests explotaron.".colorize(:red)
-    puts "\n" + "Informe de errores -->" + "\n"
+    puts "\n" + "Informe de errores -->"
+    puts "\n"
     self.informar_errores
   end
 
@@ -118,6 +119,7 @@ class TestFallo < TestEstadoFinal
 
   def informar_error
     puts "El test '#{self.test}' ha fallado con el error: '#{self.error.message}'.".colorize(:yellow)
+    puts "\n"
   end
 
 end
@@ -137,7 +139,8 @@ class TestExploto < TestEstadoFinal
 
   def informar_error
     puts "El test '#{self.test}' ha explotado con la excepción: '#{self.excepcion.message}'.".colorize(:red)
-    puts self.excepcion.backtrace.join("\n") + "\n"
+    puts self.excepcion.backtrace.join("\n")
+    puts "\n"
   end
 
 end
