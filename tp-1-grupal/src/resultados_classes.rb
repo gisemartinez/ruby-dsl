@@ -20,20 +20,20 @@ class ResultadoTest
     self.resultados.push TestExploto.new(suite, test, excepcion)
   end
 
-  def fallo?(suite, test)
+  def fallo_test?(suite, test)
     self.resultados.any? { |resultado| resultado.fallo? suite, test }
   end
 
-  def paso?(suite, test)
+  def paso_test?(suite, test)
     self.resultados.any? { |resultado| resultado.paso? suite, test }
   end
 
-  def exploto?(suite, test)
+  def exploto_test?(suite, test)
     self.resultados.any? { |resultado| resultado.exploto? suite, test }
   end
 
   def resultados_que_fallaron
-    self.resultados.select { |resultado| resultado.class == TestFallo }
+    self.resultados.select { |resultado| resultado.is_a?(TestFallo) }
   end
 
   def resultados_que_pasaron
@@ -114,7 +114,7 @@ class TestFallo < TestEstadoFinal
     self.error = error
   end
 
-  def fallo?(a_class, test)
+  def fallo?(suite, test)
     self.eql? TestFallo.new suite, test, nil
   end
 

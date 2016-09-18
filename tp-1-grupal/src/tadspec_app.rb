@@ -10,7 +10,7 @@ class TADsPec
     resultadoTest = ResultadoTest.new
     # Verifica la cantidad de argumentos para testear:
     if args.empty?
-      # testea todos los tests del contexto << TODO >>
+      # testea todos los tests del contexto TODO
     elsif args.length == 1
       # testea todos los tests de una suite dada
       suite = args.first
@@ -21,10 +21,12 @@ class TADsPec
     tests = args
     correr_coleccion_de_tests(suite, tests, resultadoTest)
     end
+=begin
     puts "\n" + "<< Reporte de TADsPEC >>".colorize(:blue)
     puts "\n"
     resultadoTest.informar_ejecucion
-    resultadoTest.resultados
+=end
+    resultadoTest
   end
 
   def testear_suite_completa(suite, resultadoTest)

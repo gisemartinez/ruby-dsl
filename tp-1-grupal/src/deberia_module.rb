@@ -15,11 +15,7 @@ class AssertionMethod
 
 end
 
-#-----------------------------------------------------
-#  COMPORTAMIENTO NECESARIO PARA EL MÉTODO 'DEBERÍA':
-#-----------------------------------------------------
-module DeberiaModule
-# CONFIGURACIONES:
+module AssertionConfiguration
   def mayor_a(valor)
     AssertionMethod.new(
         "fuera mayor a '#{valor}'",
@@ -51,8 +47,14 @@ module DeberiaModule
       uno_de_la_lista(arguments.first)
     end
   end
+end
 
-# ASERCIONES:
+#-----------------------------------------------------
+#  COMPORTAMIENTO NECESARIO PARA EL MÉTODO 'DEBERÍA':
+#-----------------------------------------------------
+module DeberiaModule
+  include AssertionConfiguration
+
   def ser(argument)
     if argument.is_a?(AssertionMethod)
       argument
@@ -82,8 +84,6 @@ module DeberiaModule
           end
         })
   end
-
-  #some_object.instance_variable_get("@#{name}")
 
   def obtener_atributo(atributo)
     if (self.respond_to?(atributo))
