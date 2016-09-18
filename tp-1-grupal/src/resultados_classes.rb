@@ -2,65 +2,66 @@ require 'colorize'
 require 'colorized_string'
 
 class ResultadoTest
-  attr_accessor :resultadosParciales
+  attr_accessor :resultados
 
   def initialize
-    self.resultadosParciales = []
+    self.resultados = []
   end
 
   def test_paso(suite, test)
-    self.resultadosParciales.push TestPaso.new(suite, test)
+    self.resultados.push TestPaso.new(suite, test)
   end
 
   def test_fallo(suite, test, error)
-    self.resultadosParciales.push TestFallo.new(suite, test, error)
+    self.resultados.push TestFallo.new(suite, test, error)
   end
 
   def test_exploto(suite, test, excepcion)
-    self.resultadosParciales.push TestExploto.new(suite, test, excepcion)
+    self.resultados.push TestExploto.new(suite, test, excepcion)
   end
 
   def fallo?(suite, test)
-    self.resultadosParciales.any? { |resultado| resultado.fallo? suite, test }
+    self.resultados.any? { |resultado| resultado.fallo? suite, test }
   end
 
   def paso?(suite, test)
-    self.resultadosParciales.any? { |resultado| resultado.paso? suite, test }
+    self.resultados.any? { |resultado| resultado.paso? suite, test }
   end
 
   def exploto?(suite, test)
-    self.resultadosParciales.any? { |resultado| resultado.exploto? suite, test }
+    self.resultados.any? { |resultado| resultado.exploto? suite, test }
   end
 
   def resultados_que_fallaron
-    self.resultadosParciales.select { |resultado| resultado.class == TestFallo }
+    self.resultados.select { |resultado| resultado.class == TestFallo }
   end
 
   def resultados_que_pasaron
-    self.resultadosParciales.select { |resultado| resultado.is_a?(TestPaso) }
+    self.resultados.select { |resultado| resultado.is_a?(TestPaso) }
   end
 
   def resultados_que_explotaron
-    self.resultadosParciales.select { |resultado| resultado.is_a?(TestExploto) }
+    self.resultados.select { |resultado| resultado.is_a?(TestExploto) }
   end
 
   def informar_errores
     # Pide información sobre los errores de aserción y los anormales:
-    self.resultadosParciales.each do |resultado|
+    self.resultados.each do |resultado|
       resultado.informar_error
     end
   end
 
   # --- Informa por consola los resultados de la ejecución de los tests:
   def informar_ejecucion
-    puts "\n" + "<< Reporte de TADsPEC >>".colorize(:blue)
-    puts "\n" + "Se corrieron #{self.resultadosParciales.length} tests --> "
-    puts "- #{self.resultados_que_pasaron.length} tests pasaron. ".colorize(:green)
-    puts "- #{self.resultados_que_fallaron.length} tests fallaron.".colorize(:yellow)
-    puts "- #{self.resultados_que_explotaron.length} tests explotaron.".colorize(:red)
-    puts "\n" + "Informe de errores -->"
-    puts "\n"
-    self.informar_errores
+    unless resultados.empty?
+      puts "\n" + "Se corrieron #{self.resultados.length} tests --> "
+      puts "- #{self.resultados_que_pasaron.length} tests pasaron. ".colorize(:green)
+      puts "- #{self.resultados_que_fallaron.length} tests fallaron.".colorize(:yellow)
+      puts "- #{self.resultados_que_explotaron.length} tests explotaron.".colorize(:red)
+      puts "\n" + "Informe de errores -->"
+      puts "\n"
+      self.informar_errores
+    end
   end
 
 end
