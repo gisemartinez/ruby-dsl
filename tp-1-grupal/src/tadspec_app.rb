@@ -30,7 +30,6 @@ class TADsPec
   end
 
   def testear_suite_completa(suite, resultadoTest)
-    # Obtiene todos los métodos de la suite que sean tests:
     tests = self.obtener_tests_de suite
     correr_coleccion_de_tests(suite, tests, resultadoTest)
   end
@@ -45,7 +44,7 @@ class TADsPec
   def obtener_tests_de(suite)
     metodos = suite.instance_methods(false)
     tests = metodos.select { | metodo | es_un_test(metodo) }
-    puts "No se ha encontrado ningún test en la clase '#{suite}'.".colorize(:red) if tests.empty?
+    #puts "No se ha encontrado ningún test en la clase '#{suite}'.".colorize(:red) if tests.empty?
     tests
   end
 
@@ -75,6 +74,14 @@ class TADsPec
     if (es_un_test(metodo))
       suite.new.send metodo
     end
+  end
+
+  def remove_deberia_module_from_all_objects
+    Object.class_eval do
+      this = self
+      DeberiaModule.instance_methods
+          .each{|method| this.send(:undef_method, method) if method != :method_missing}
+      end
   end
 
 end

@@ -23,9 +23,9 @@ class Persona
 end
 
 class MiSuiteDeTests
-  # Total: 27
-  # Pasan: 13
-  # Fallan: 14
+  # Total: 31
+  # Pasan: 19
+  # Fallan: 13
   # Explotan: 0
 
   # pasa
@@ -169,9 +169,9 @@ class MiSuiteDeTests
   end
 
   # falla
-  def testear_que_juan_tiene_edad_dentro_de_la_lista
+  def testear_que_juan_tiene_ingreso_dentro_de_la_lista
     juan = Persona.new(22)
-    juan.deberia tener_edad uno_de_estos [true, 'juan', 1.5]
+    juan.deberia tener_ingreso uno_de_estos [true, 'juan', 1.5]
   end
 
   # pasa
@@ -181,9 +181,31 @@ class MiSuiteDeTests
   end
 
   # falla
-  def testear_que_juan_tiene_edad_dentro_de_los_varargs
+  def testear_que_juan_tiene_ingreso_dentro_de_los_varargs
     juan = Persona.new(22)
-    juan.deberia tener_edad uno_de_estos true, 'juan', 1.5
+    juan.deberia tener_ingreso uno_de_estos true, 'juan', 1.5
+  end
+
+  # pasa
+  def testear_que_explota_la_division_por_cero
+    Proc.new { 7 / 0 }.deberia explotar_con ZeroDivisionError
+  end
+
+  # pasa
+  def testear_que_juan_explota_con_el_mensaje_nombre
+    juan = Persona.new(22)
+    Proc.new { juan.nombre }.deberia explotar_con NoMethodError
+  end
+
+  # pasa
+  def testear_que_juan_explota_con_el_mensaje_nombre_generalizado
+    juan = Persona.new(22)
+    Proc.new { juan.nombre }.deberia explotar_con StandardError
+  end
+
+  # falla
+  def testear_que_la_division_por_cero_explota_con_no_method
+    Proc.new { 7 / 0 }.deberia explotar_con NoMethodError
   end
 
   # se ignora
@@ -196,28 +218,6 @@ class MiSuiteDeTests
     puts 'No soy un test.'
   end
 
-end
-
-=begin
-     # falla
-    def testear_que_explota_la_division_por_cero
-      { 7 / 0 }.deberia explotar_con ZeroDivisionError
-    end
-
-    # falla
-    def testear_que_juan_explota_con_nombre
-      juan = Persona.new(22)
-      { juan.nombre }.deberia explotar_con Error
-    end
-=end
-
-class MiSuiteDeTestsQuePasan
-end
-
-class MiSuiteDeTestsQueFallan
-end
-
-class MiSuiteDeTestsQueExplotan
 end
 
 class UnaClaseSinTests

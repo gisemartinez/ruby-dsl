@@ -74,11 +74,13 @@ module DeberiaModule
   def explotar_con(nombre_excepcion)
     AssertionMethod.new(
         "explotara con la excepción '#{nombre_excepcion}'",
-        Proc.new { |&block|
+        Proc.new { |prok|
           begin
-            block.call
+            prok.call
           rescue nombre_excepcion
             next true
+          rescue StandardError
+            next false
           else
             next false
           end
