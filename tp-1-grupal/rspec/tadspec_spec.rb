@@ -95,19 +95,20 @@ describe 'TADsPEC' do
   it 'Verificar que los objetos no entienden las aserciones después del testing' do
     tester = TADsPec.new
     juan = Persona.new(22)
+    string_hola = String.new('Hola')
+
     tester.testear(MiSuiteDeTests)
 
-    expect(7.respond_to?(:deberia)).to eq(true)
     expect(juan.respond_to?(:deberia)).to eq(true)
     expect('Hola'.respond_to?(:deberia)).to eq(true)
-    expect(true.respond_to?(:deberia)).to eq(true)
 
-    #tester.remove_deberia_module_from_all_objects
+    juan.remove_deberia_module
+    string_hola.remove_deberia_module
 
-    expect{7.deberia ser 7}.to raise_error NoMethodError
-    expect{'Hola'.deberia ser 'Chau'}.to raise_error NoMethodError
     expect{juan.deberia tener_edad 22}.to raise_error NoMethodError
-    expect{true.deberia ser false}.to raise_error NoMethodError
+    expect(juan.respond_to?(:deberia)).to be_falsey
+    expect{string_hola.deberia ser 'Chau'}.to raise_error NoMethodError
+    expect(string_hola.respond_to?(:deberia)).to be_falsey
   end
 
 

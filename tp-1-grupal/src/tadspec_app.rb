@@ -35,10 +35,14 @@ class TADsPec
   end
 
   def preparar_para_testeo(suite)
-    # Le hace entender a cualquier objeto del contexto el mensaje 'deberia':
+    suite.class_eval do
+      include AssertionConfiguration
+    end
+
    Object.class_eval do
      include DeberiaModule
-    end
+     include ModuleRemover
+   end
   end
 
   def obtener_tests_de(suite)
@@ -74,14 +78,6 @@ class TADsPec
     if (es_un_test(metodo))
       suite.new.send metodo
     end
-  end
-
-  def remove_deberia_module_from_all_objects
-    Object.class_eval do
-      this = self
-      DeberiaModule.instance_methods
-          .each{|method| this.send(:undef_method, method) if method != :method_missing}
-      end
   end
 
 end

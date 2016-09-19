@@ -12,9 +12,11 @@ class AssertionMethod
   def call(contexto)
     self.bloque.call(contexto)
   end
-
 end
 
+#-----------------------------------------------------
+#  COMPORTAMIENTO NECESARIO PARA EL MÉTODO 'DEBERÍA':
+#-----------------------------------------------------
 module AssertionConfiguration
   def mayor_a(valor)
     AssertionMethod.new(
@@ -49,19 +51,14 @@ module AssertionConfiguration
   end
 end
 
-#-----------------------------------------------------
-#  COMPORTAMIENTO NECESARIO PARA EL MÉTODO 'DEBERÍA':
-#-----------------------------------------------------
-module DeberiaModule
-  include AssertionConfiguration
-
+module Assertion
   def ser(argument)
     if argument.is_a?(AssertionMethod)
       argument
-      else
-        AssertionMethod.new(
-            "fuera igual a '#{argument}'",
-            Proc.new { |x| next x == argument })
+    else
+      AssertionMethod.new(
+          "fuera igual a '#{argument}'",
+          Proc.new { |x| next x == argument })
     end
   end
 
@@ -115,6 +112,16 @@ module DeberiaModule
         "fuera '#{consulta}'",
         Proc.new { |x| next x.send(consulta) })
   end
+end
+
+module DeberiaModule
+  include Assertion
+
+  def deberia(assertion)
+    assertion_result = assertion.call(self)
+    assertion_message = "Se esperaba que '#{self}' #{assertion.mensaje}."
+    raise AssertionError, assertion_message unless assertion_result
+  end
 
   def method_missing(symbol, *args)
     method_size = symbol.to_s.length
@@ -126,13 +133,21 @@ module DeberiaModule
       super(symbol, args)
     end
   end
+end
 
-  def deberia(assertion)
-    assertion_result = assertion.call(self)
-    assertion_message = "Se esperaba que '#{self}' #{assertion.mensaje}."
-    raise AssertionError, assertion_message unless assertion_result
+module ModuleRemover
+  def remove_deberia_module
+    DeberiaModule.instance_methods.each {|method|
+      singleton_class.class_eval { undef_method(method.to_sym) if method.to_sym != :method_missing }}
   end
 
+  def remove_deberia_method
+    self.instance_eval { undef :deberia }
+  end
+
+  def delete_deberia_method
+    self.singleton_class.send :undef_method, :deberia
+  end
 end
 
 #----------------------------------------------------
