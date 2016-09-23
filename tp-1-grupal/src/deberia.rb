@@ -114,7 +114,7 @@ module Assertion
   end
 end
 
-module DeberiaModule
+module Deberia
   include Assertion
 
   def deberia(assertion)
@@ -137,7 +137,7 @@ end
 
 module ModuleRemover
   def remove_deberia_module
-    DeberiaModule.instance_methods.each {|method|
+    Deberia.instance_methods.each {|method|
       singleton_class.class_eval { undef_method(method.to_sym) if method.to_sym != :method_missing }}
   end
 

@@ -4,7 +4,7 @@
 class Persona
   attr_accessor :edad, :ingreso
 
-  def initialize(edad=22)
+  def initialize(edad)
     self.edad = edad
   end
 
@@ -229,5 +229,53 @@ class UnaClaseSinTests
   # se ignora
   def otro_metodo_que_no_es_un_test
     puts 'No soy un test.'
+  end
+end
+
+class PersonaHome
+  def todas_las_personas
+    ['Servicio externo']
+  end
+
+  def devolver_un_string
+    'Original'
+  end
+
+  def personas_viejas
+    self.todas_las_personas.select{|p| p.viejo?}
+  end
+
+end
+
+class PersonaHomeTests
+  def testear_que_personas_viejas_trae_solo_a_los_viejos
+    nico = Persona.new(30)
+    axel = Persona.new(35)
+    lean = Persona.new(22)
+
+    PersonaHome.mockear(:todas_las_personas) do
+      [nico, axel, lean]
+    end
+
+    viejos = PersonaHome.new.personas_viejas
+
+    viejos.deberia ser [nico, axel]
+  end
+
+  def testear_que_devolver_un_string_retorna_fui_mockeado
+
+    PersonaHome.mockear(:devolver_un_string) {'Fui mockeado!'}
+
+    mensaje = PersonaHome.new.devolver_un_string
+
+    mensaje.deberia ser 'Fui mockeado!'
+  end
+end
+
+class SuiteQueExplota
+  def testear_que_maria_es_joven
+    maria = Persona.new(50)
+
+    maria.deberia ser_joven
   end
 end
