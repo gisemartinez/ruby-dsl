@@ -8,13 +8,13 @@ require '../src/mocking_and_spying'
 class TADsPec
 
   def initialize
-    @@mocked_classes = Array.new
+    # @@mocked_classes = Array.new
   end
 
-  def self.add_mocked_class(klass)
-    @@mocked_classes = Array.new unless class_variable_defined?(:@@mocked_classes)
-    @@mocked_classes.push(klass)
-  end
+  # def self.add_mocked_class(klass)
+  #   @@mocked_classes = Array.new unless class_variable_defined?(:@@mocked_classes)
+  #   @@mocked_classes.push(klass)
+  # end
 
   def self.testear(suite, *tests)
     resultadoTest = ResultadoTest.new
@@ -30,7 +30,7 @@ class TADsPec
     puts "\n"
     resultadoTest.informar_ejecucion
 =end
-    restaurar_contexto_original(suite)
+    #restaurar_contexto_original(suite)
     resultadoTest
   end
 
@@ -45,33 +45,43 @@ class TADsPec
     agregar_metodos_de_testing(Object, Deberia)
   end
 
-  def self.restaurar_contexto_original(suite)
-    remover_metodos_de_testing(suite, AssertionConfiguration)
-    remover_metodos_de_testing(suite, Spying)
-    remover_metodos_de_testing(Object, Deberia)
-    self.desmockear_clases if class_variable_defined?(:@@mocked_classes)
-  end
+  # TODO: no es necesario "restaurar" el contexto original si (casi) no aplicamos cambios globales
+
+  # def self.restaurar_contexto_original(suite)
+  #   remover_metodos_de_testing(suite, AssertionConfiguration)
+  #   remover_metodos_de_testing(suite, Spying)
+  #   remover_metodos_de_testing(Object, Deberia)
+  #   self.desmockear_clases if class_variable_defined?(:@@mocked_classes)
+  # end
+
+  # TODO: Para pensar, meter métodos a una clase definidos en un modulo ya lo hicieron
+  #  es tan simple como incluir el modulo en una clase. La verdadera pregunta es:
+  #  ¿Cuales son los métodos que estoy obligado a meter globalmente y cuales puedo agregar localmente / que
+  #  van a desaparecer en la ejecución del siguiente test o en la siguiente instancia?
 
   def self.agregar_metodos_de_testing(klass, modulo)
-    modulo.instance_methods(true).each do |symbol|
-      method = modulo.instance_method(symbol)
-      klass.send :define_method, symbol, method
-    end
+    klass.include modulo
+    # modulo.instance_methods(true).each do |symbol|
+    #   method = modulo.instance_method(symbol)
+    #   klass.send :define_method, symbol, method
+    # end
   end
 
-  def self.remover_metodos_de_testing(klass, modulo)
-    modulo.instance_methods(true).each do |symbol|
-      klass.send :remove_method, symbol
-    end
-  end
+  # TODO:
 
-  def self.desmockear_clases
-    @@mocked_classes.each do |klass|
-      klass.desmockear
-      klass.desmockear unless klass.mocked_methods.empty?
-      @@mocked_classes.delete(klass)
-    end
-  end
+  # def self.remover_metodos_de_testing(klass, modulo)
+  #   modulo.instance_methods(true).each do |symbol|
+  #     klass.send :remove_method, symbol
+  #   end
+  # end
+
+  # def self.desmockear_clases
+  #   @@mocked_classes.each do |klass|
+  #     klass.desmockear
+  #     klass.desmockear unless klass.mocked_methods.empty?
+  #     @@mocked_classes.delete(klass)
+  #   end
+  # end
 
   def self.obtener_tests_de(suite)
     metodos = suite.instance_methods(false)
@@ -94,6 +104,9 @@ class TADsPec
       rescue AssertionError => mensaje_excepcion
         # ERROR DE ASERCIÓN:
         resultadoTest.test_fallo suite, test, mensaje_excepcion
+
+      # TODO: En lugar de atrapar StandardError deberían atrapar cualquier tipo de error que no haya sido
+      #   AssertionError (sino podrían romper la ejecución de los tests si uno falla con algo que no sea StandardError)
       rescue StandardError => mensaje_excepcion
         # ERROR ANORMAL:
         resultadoTest.test_exploto suite, test, mensaje_excepcion
@@ -110,21 +123,24 @@ class TADsPec
 end
 
 class Module
-  attr_accessor :mocked_methods
+  # attr_accessor :mocked_methods
+
+  # TODO: Mockear puede trabajar sin efecto global
+  #  "des"mockear un objeto no es necesario porque mocker SOLO aplica a una instancia de la clase y no a todas
 
   def mockear(symbol, &block)
-    method = self.instance_method(symbol)
-    (self.mocked_methods = Array.new) if self.mocked_methods.nil?
-    self.mocked_methods.push(MockedMethod.new symbol, method)
+    # method = self.instance_method(symbol)
+    # (self.mocked_methods = Array.new) if self.mocked_methods.nil?
+    # self.mocked_methods.push(MockedMethod.new symbol, method)
     self.send :define_method, symbol, &block
-    TADsPec.add_mocked_class(self)
+    # TADsPec.add_mocked_class(self)
   end
 
-  def desmockear
-    this = self
-    self.mocked_methods.each do |method|
-      this.send :define_method, method.name, method.body
-      this.mocked_methods.delete(method)
-    end
-  end
+  # def desmockear
+  #   this = self
+  #   self.mocked_methods.each do |method|
+  #     this.send :define_method, method.name, method.body
+  #     this.mocked_methods.delete(method)
+  #   end
+  # end
 end

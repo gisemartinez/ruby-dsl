@@ -36,12 +36,33 @@ describe 'TADsPEC' do
     expect{TADsPec.correr_test_de_una_suite MiSuiteDeTests, :testear_que_juan_es_menor_de_edad}
         .to raise_error AssertionError
 
-    TADsPec.restaurar_contexto_original(MiSuiteDeTests)
+    #TADsPec.restaurar_contexto_original(MiSuiteDeTests)
   end
 
   it 'Ejecutar todos los tests de una suite' do
     tests = TADsPec.obtener_tests_de(MiSuiteDeTests)
     resultado = TADsPec.testear(MiSuiteDeTests)
+
+    # TODO: Cuidado, verificar que la cantidad que pasó, que falló o explotó sea X no garantiza que los métodos
+    #   que fallaron fueran los que esperábamos.
+    # Tienen dos alternativas para testear así:
+    # - preguntan test por test que finalizó como esperaban
+    # - piden una colección por cada tipo de resultado y la comparan con una que esperan ustedes
+    # - definen "metadata" en cada test para luego verificar que terminó como esperaban
+    # - corren test por test esperando el resultado que esperan (aunque eso no testea que entre sí no se interfieren)
+    #
+    # Puede resultar más cómodo tener suites de test de prueba más chiquitas o incluso definidas dentro del mismo
+    # "it" de spec.
+    # Por ejemplo:
+    #
+    # suite = Class.new {
+    #  def testear_que_7_es_7
+    #    7.deberia ser 7
+    #  end
+    # }
+    #
+    # TADsPec.testear(suite)
+    # ...
 
     expect(tests.length).to eq(33)
     expect(resultado.resultados.length).to eq(33)

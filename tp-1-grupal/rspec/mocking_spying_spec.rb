@@ -15,8 +15,8 @@ describe 'TADsPEC_Mocking_And_Spying' do
     expect(personaHome.devolver_un_string).to eq('Fui mockeado!')
 
     # Funcionalidad del desmockeo
-    PersonaHome.desmockear
-    expect(personaHome.devolver_un_string).to eq('Original')
+    #PersonaHome.desmockear
+    #expect(personaHome.devolver_un_string).to eq('Original')
   end
 
   it 'Verificar que el metodo mockeado vuelve a ser el original luego del testing' do

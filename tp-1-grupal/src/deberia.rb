@@ -19,6 +19,11 @@ end
 #-----------------------------------------------------
 module Assertion
   def ser(argument)
+    # TODO: para pensar
+    # bien detectada la diferencia entre otras condiciones y valores finales (equals)
+    # (si les molesta como a mi tener este if porque rompe el polimorfismo del parametro del "ser"
+    #   pueden alterar el dsl para que usar equals sea "3.deberia ser igual_a 1")
+    # ¿Si el nuevo dsl anterior fuera el caso, que comportamiento tiene el "ser"? ¿para qué sirve?
     if argument.is_a?(AssertionMethod)
       argument
     else
@@ -43,6 +48,7 @@ module Assertion
           rescue nombre_excepcion
             next true
           rescue StandardError
+          # TODO: esto es redundante con el else de abajo
             next false
           else
             next false
@@ -114,6 +120,7 @@ module AssertionConfiguration
 end
 
 module Deberia
+  # TODO: CUIDADO! Cualquier objetos solo necesitan entender "debería"
   include Assertion
 
   def deberia(assertion)
@@ -122,6 +129,8 @@ module Deberia
     raise AssertionError, assertion_message unless assertion_result
   end
 
+  # TODO: CUIDADO! Este method missing aplicaría a todos los objetos!
+  #  Solo necesita entender "ser_*" y "tener_*" la suite de test Y SOLO la suite de test
   def method_missing(symbol, *args)
     method_size = symbol.to_s.length
     if symbol.to_s[0..3] == 'ser_'
