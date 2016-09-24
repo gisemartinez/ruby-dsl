@@ -43,19 +43,18 @@ describe 'TADsPEC' do
     tests = TADsPec.obtener_tests_de(MiSuiteDeTests)
     resultado = TADsPec.testear(MiSuiteDeTests)
 
-    expect(tests.length).to eq(31)
-    expect(resultado.resultados.length).to eq(31)
+    expect(tests.length).to eq(33)
+    expect(resultado.resultados.length).to eq(33)
     expect(resultado.resultados_que_pasaron.length).to eq(18)
     expect(resultado.resultados_que_fallaron.length).to eq(13)
-    expect(resultado.resultados_que_explotaron.length).to eq(0)
+    expect(resultado.resultados_que_explotaron.length).to eq(2)
   end
 
   it 'Verificar que se ignora cualquier método que no es un test' do
     tests = TADsPec.obtener_tests_de(UnaClaseSinTests)
     resultados = TADsPec.testear(UnaClaseSinTests).resultados
 
-    expect(tests.empty?).to eq(true)
-    expect(resultados.empty?).to eq(true)
+    expect(tests.empty? && resultados.empty?).to eq(true)
   end
 
   it 'Ejecutar varios tests especificos de una suite' do
@@ -93,13 +92,16 @@ describe 'TADsPEC' do
     expect(resultado.fallo_test?(MiSuiteDeTests, :testear_que_la_division_por_cero_explota_con_no_method)).to eq(true)
   end
 
-  it 'Ejcutar test que explota y arroja excepcion anormal' do
-    resultado = TADsPec.testear(SuiteQueExplota, :testear_que_maria_es_joven)
+  it 'Ejcutar tests que explotan y arrojan excepcion anormal' do
+    resultado = TADsPec.testear(SuiteQueExplota, :testear_que_maria_es_joven, :testear_que_un_string_es_un_array)
     # Explota porque María no entiende el mensaje 'joven?'
     expect(resultado.exploto_test?(SuiteQueExplota, :testear_que_maria_es_joven)).to eq(true)
+    # Explota porque un String no entiende el mensaje 'array?'
+    expect(resultado.exploto_test?(SuiteQueExplota, :testear_que_un_string_es_un_array)).to eq(true)
 
-    excepcion_arrojada = resultado.resultados.first.excepcion.class
-    expect(excepcion_arrojada).to eq(NoMethodError)
+    excepcion_1 = resultado.resultados[0].excepcion.class
+    excepcion_2 = resultado.resultados[1].excepcion.class
+    expect(excepcion_1 && excepcion_2).to eq(NoMethodError)
   end
 
 end

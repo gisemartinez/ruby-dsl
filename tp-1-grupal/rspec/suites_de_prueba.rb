@@ -6,6 +6,7 @@ class Persona
 
   def initialize(edad)
     self.edad = edad
+    self.ingreso = 95000
   end
 
   def viejo?
@@ -13,11 +14,15 @@ class Persona
   end
 
   def saludar
-    puts 'Hola'
+    'Hola'
   end
 
   def rico?
     self.ingreso >= 80000
+  end
+
+  def sacar_repetidos(*args)
+    args.uniq
   end
 
 end
@@ -132,7 +137,7 @@ class MiSuiteDeTests
     juan.deberia tener_ingreso 25000
   end
 
-  # falla: no hay atributo 'nombre' TODO
+  # falla: no hay atributo 'nombre'
   def testear_que_juan_tiene_nombre_juan
     juan = Persona.new(22)
     juan.deberia tener_nombre "juan"
@@ -188,24 +193,35 @@ class MiSuiteDeTests
 
   # pasa
   def testear_que_explota_la_division_por_cero
-    Proc.new { 7 / 0 }.deberia explotar_con ZeroDivisionError
+    proc { 7 / 0 }.deberia explotar_con ZeroDivisionError
   end
 
   # pasa
   def testear_que_juan_explota_con_el_mensaje_nombre
     juan = Persona.new(22)
-    Proc.new { juan.nombre }.deberia explotar_con NoMethodError
+    proc { juan.nombre }.deberia explotar_con NoMethodError
   end
 
   # pasa
   def testear_que_juan_explota_con_el_mensaje_nombre_generalizado
     juan = Persona.new(22)
-    Proc.new { juan.nombre }.deberia explotar_con StandardError
+    proc { juan.nombre }.deberia explotar_con StandardError
   end
 
   # falla
   def testear_que_la_division_por_cero_explota_con_no_method
-    Proc.new { 7 / 0 }.deberia explotar_con NoMethodError
+    proc { 7 / 0 }.deberia explotar_con NoMethodError
+  end
+
+  # explota
+  def testear_que_maria_es_joven
+    maria = Persona.new(50)
+    maria.deberia ser_joven
+  end
+
+  # explota
+  def testear_que_un_string_es_un_array
+    'Hola'.deberia ser_array
   end
 
   # se ignora
@@ -218,6 +234,19 @@ class MiSuiteDeTests
     puts 'No soy un test.'
   end
 
+end
+
+class SuiteQueExplota
+  # explota
+  def testear_que_maria_es_joven
+    maria = Persona.new(50)
+    maria.deberia ser_joven
+  end
+
+  # explota
+  def testear_que_un_string_es_un_array
+    'Hola'.deberia ser_array
+  end
 end
 
 class UnaClaseSinTests
@@ -241,13 +270,21 @@ class PersonaHome
     'Original'
   end
 
-  def personas_viejas
-    self.todas_las_personas.select{|p| p.viejo?}
+  def abecedario
+    ['Abecedario']
   end
 
+  def letras_vocales
+    self.abecedario.select{|letra| letra =~ /[aeiou]/}
+  end
+
+  def personas_viejas
+    self.todas_las_personas.select{|persona| persona.viejo?}
+  end
 end
 
 class PersonaHomeTests
+  # pasa
   def testear_que_personas_viejas_trae_solo_a_los_viejos
     nico = Persona.new(30)
     axel = Persona.new(35)
@@ -262,20 +299,92 @@ class PersonaHomeTests
     viejos.deberia ser [nico, axel]
   end
 
+  # pasa
   def testear_que_devolver_un_string_retorna_fui_mockeado
-
     PersonaHome.mockear(:devolver_un_string) {'Fui mockeado!'}
 
     mensaje = PersonaHome.new.devolver_un_string
 
     mensaje.deberia ser 'Fui mockeado!'
   end
+
+  # pasa
+  def testear_que_se_pueden_mockear_multiples_metodos
+    nico = Persona.new(30)
+    axel = Persona.new(35)
+    lean = Persona.new(22)
+
+    PersonaHome.mockear(:todas_las_personas) do
+      [nico, axel, lean]
+    end
+    PersonaHome.mockear(:devolver_un_string) {'Fui mockeado!'}
+    PersonaHome.mockear(:abecedario) do
+      %w(a b c d e f g h i j k l m n o p q r s t u v w x y z)
+    end
+
+    personaHome = PersonaHome.new
+    viejos = personaHome.personas_viejas
+    mensaje = personaHome.devolver_un_string
+    vocales = personaHome.letras_vocales
+
+    viejos.deberia ser [nico, axel]
+    mensaje.deberia ser 'Fui mockeado!'
+    vocales.deberia ser %w(a e i o u)
+  end
 end
 
-class SuiteQueExplota
-  def testear_que_maria_es_joven
-    maria = Persona.new(50)
+class SpyingSuiteTests
+  # pasa
+  def testear_que_se_use_la_edad
+    pato = Persona.new(23)
+    pato_espiado = espiar(pato)
 
-    maria.deberia ser_joven
+    pato_espiado.viejo?
+
+    pato_espiado.deberia haber_recibido(:viejo?)
+    #pato_espiado.deberia haber_recibido(:edad).veces(1)
+  end
+
+  # falla
+  def testear_que_se_use_la_edad_cinco_veces
+    pato = Persona.new(23)
+    pato_espiado = espiar(pato)
+
+    pato_espiado.viejo?
+
+    pato_espiado.deberia haber_recibido(:viejo?).veces(5)
+    #pato_espiado.deberia haber_recibido(:edad).veces(5)
+  end
+
+  # pasa
+  def testear_que_se_se_llamo_a_viejo_sin_argumentos
+    pato = Persona.new(23)
+    pato_espiado = espiar(pato)
+
+    pato_espiado.viejo?
+
+    pato_espiado.deberia haber_recibido(:viejo?).con_argumentos()
+  end
+
+  # falla
+  def testear_que_se_se_llamo_a_viejo_con_dos_argumentos
+    pato = Persona.new(23)
+    pato_espiado = espiar(pato)
+
+    pato_espiado.viejo?
+
+    pato_espiado.deberia haber_recibido(:viejo?).con_argumentos(19, 'hola')
+  end
+
+  # falla (lean no fue espiado)
+  def testear_que_se_lean_recibio_mensaje_viejo
+    lean = Persona.new(22)
+    pato = Persona.new(23)
+    pato_espiado = espiar(pato)
+
+    lean.viejo?
+
+    lean.deberia haber_recibido(:viejo?)
+    #lean.deberia haber_recibido(:edad)
   end
 end

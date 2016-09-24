@@ -5,7 +5,7 @@ class ResultadoTest
   attr_accessor :resultados
 
   def initialize
-    self.resultados = []
+    self.resultados = Array.new
   end
 
   def test_paso(suite, test)
@@ -69,7 +69,6 @@ end
 class TestEstadoFinal
   attr_accessor :suite, :test
 
-  # --- REDEFINICIÓN DEL 'eql?'
   def eql?(receptor)
     self.suite == receptor.suite && self.test == receptor.test
   end

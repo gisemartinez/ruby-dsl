@@ -2,13 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08078a06-2b21-4d4e-a14d-34fc449cd667" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tp-1-grupal/src/deberia_module.rb" afterPath="$PROJECT_DIR$/tp-1-grupal/src/deberia.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tp-1-grupal/src/resultados_classes.rb" afterPath="$PROJECT_DIR$/tp-1-grupal/src/test_results.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tp-1-grupal/src/suite_de_prueba.rb" afterPath="$PROJECT_DIR$/tp-1-grupal/rspec/suites_de_prueba.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/tadp-2016c2-grupo3.iml" afterPath="$PROJECT_DIR$/.idea/tadp-2016c2-grupo3.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tp-1-grupal/rspec/mocking_spying_spec.rb" afterPath="$PROJECT_DIR$/tp-1-grupal/rspec/mocking_spying_spec.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tp-1-grupal/rspec/suites_de_prueba.rb" afterPath="$PROJECT_DIR$/tp-1-grupal/rspec/suites_de_prueba.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tp-1-grupal/rspec/tadspec_spec.rb" afterPath="$PROJECT_DIR$/tp-1-grupal/rspec/tadspec_spec.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tp-1-grupal/src/deberia.rb" afterPath="$PROJECT_DIR$/tp-1-grupal/src/deberia.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tp-1-grupal/src/mocking_and_spying.rb" afterPath="$PROJECT_DIR$/tp-1-grupal/src/mocking_and_spying.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tp-1-grupal/src/tadspec_app.rb" afterPath="$PROJECT_DIR$/tp-1-grupal/src/tadspec_app.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tp-1-grupal/src/test_results.rb" afterPath="$PROJECT_DIR$/tp-1-grupal/src/test_results.rb" />
     </list>
     <ignored path="tadp-2016c2-grupo3.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -22,17 +24,21 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/tadp-2016c2-grupo3@TADsPEC_Ejecutar_un_test_especifico_que_pasa_de_una_suite__tadp_2016c2_grupo3.coverage" NAME="TADsPEC Ejecutar un test especifico que pasa de una suite: tadp-2016c2-grupo3 Coverage Results" MODIFIED="1474644106247" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tp-1-grupal/rspec" MODULE_NAME="tadp-2016c2-grupo3" />
-    <SUITE FILE_PATH="coverage/tadp-2016c2-grupo3@TADsPEC_Mocking__tadp_2016c2_grupo3__1_.coverage" NAME="TADsPEC_Mocking: tadp-2016c2-grupo3 (1) Coverage Results" MODIFIED="1474649097301" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tp-1-grupal/rspec" MODULE_NAME="tadp-2016c2-grupo3" />
-    <SUITE FILE_PATH="coverage/tadp-2016c2-grupo3@Run_spec__tadspec_spec___tadp_2016c2_grupo3.coverage" NAME="Run spec 'tadspec_spec': tadp-2016c2-grupo3 Coverage Results" MODIFIED="1474589699842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tp-1-grupal/rspec" MODULE_NAME="tadp-2016c2-grupo3" />
-    <SUITE FILE_PATH="coverage/tadp-2016c2-grupo3@Run_spec__mocks_and_spies_spec___tadp_2016c2_grupo3.coverage" NAME="Run spec 'mocks_and_spies_spec': tadp-2016c2-grupo3 Coverage Results" MODIFIED="1474644210700" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tp-1-grupal/rspec" MODULE_NAME="tadp-2016c2-grupo3" />
+    <SUITE FILE_PATH="coverage/tadp-2016c2-grupo3@TADsPEC_Mocking_Verificar_que_el_metodo_mockeado_vuelve_a_ser_el_original_luego_del_testing__tadp_2016c2_grupo3.coverage" NAME="TADsPEC_Mocking Verificar que el metodo mockeado vuelve a ser el original luego del testing: tadp-2016c2-grupo3 Coverage Results" MODIFIED="1474653723315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tp-1-grupal/rspec" MODULE_NAME="tadp-2016c2-grupo3" />
+    <SUITE FILE_PATH="coverage/tadp-2016c2-grupo3@TADsPEC_Mocking__tadp_2016c2_grupo3__1_.coverage" NAME="TADsPEC_Mocking: tadp-2016c2-grupo3 (1) Coverage Results" MODIFIED="1474662001755" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tp-1-grupal/rspec" MODULE_NAME="tadp-2016c2-grupo3" />
+    <SUITE FILE_PATH="coverage/tadp-2016c2-grupo3@Run_spec__tadspec_spec___tadp_2016c2_grupo3.coverage" NAME="Run spec 'tadspec_spec': tadp-2016c2-grupo3 Coverage Results" MODIFIED="1474685294757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tp-1-grupal/rspec" MODULE_NAME="tadp-2016c2-grupo3" />
     <SUITE FILE_PATH="coverage/tadp-2016c2-grupo3@TADsPEC_Mocking__tadp_2016c2_grupo3.coverage" NAME="TADsPEC_Mocking: tadp-2016c2-grupo3 Coverage Results" MODIFIED="1474644959405" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tp-1-grupal/rspec" MODULE_NAME="tadp-2016c2-grupo3" />
-    <SUITE FILE_PATH="coverage/tadp-2016c2-grupo3@TADsPEC__tadp_2016c2_grupo3.coverage" NAME="TADsPEC: tadp-2016c2-grupo3 Coverage Results" MODIFIED="1474649126555" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tp-1-grupal/rspec" MODULE_NAME="tadp-2016c2-grupo3" />
     <SUITE FILE_PATH="coverage/tadp-2016c2-grupo3@TADsPEC_Mocking_Testear_que_al_mockear_se_reemplaza_el_comportamiento_de_un_metodo__tadp_2016c2_grupo3__1_.coverage" NAME="TADsPEC_Mocking Testear que al mockear se reemplaza el comportamiento de un metodo: tadp-2016c2-grupo3 (1) Coverage Results" MODIFIED="1474648962023" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tp-1-grupal/rspec" MODULE_NAME="tadp-2016c2-grupo3" />
-    <SUITE FILE_PATH="coverage/tadp-2016c2-grupo3@TADsPEC_Ejecutar_todos_los_tests_de_una_suite__tadp_2016c2_grupo3.coverage" NAME="TADsPEC Ejecutar todos los tests de una suite: tadp-2016c2-grupo3 Coverage Results" MODIFIED="1474649113827" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tp-1-grupal/rspec" MODULE_NAME="tadp-2016c2-grupo3" />
+    <SUITE FILE_PATH="coverage/tadp-2016c2-grupo3@TADsPEC_Ejecutar_todos_los_tests_de_una_suite__tadp_2016c2_grupo3.coverage" NAME="TADsPEC Ejecutar todos los tests de una suite: tadp-2016c2-grupo3 Coverage Results" MODIFIED="1474653608842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tp-1-grupal/rspec" MODULE_NAME="tadp-2016c2-grupo3" />
     <SUITE FILE_PATH="coverage/tadp-2016c2-grupo3@TADsPEC_Testear_mockeo_de_un_metodo__tadp_2016c2_grupo3.coverage" NAME="TADsPEC Testear mockeo de un metodo: tadp-2016c2-grupo3 Coverage Results" MODIFIED="1474591832899" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tp-1-grupal/rspec" MODULE_NAME="tadp-2016c2-grupo3" />
-    <SUITE FILE_PATH="coverage/tadp-2016c2-grupo3@TADsPEC_Verificar_que_los_objetos_no_entienden_las_aserciones_antes_del_testing__tadp_2016c2_grupo3.coverage" NAME="TADsPEC Verificar que los objetos no entienden las aserciones antes del testing: tadp-2016c2-grupo3 Coverage Results" MODIFIED="1474645311521" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tp-1-grupal/rspec" MODULE_NAME="tadp-2016c2-grupo3" />
+    <SUITE FILE_PATH="coverage/tadp-2016c2-grupo3@Run_spec__mocking_spying_spec___tadp_2016c2_grupo3.coverage" NAME="Run spec 'mocking_spying_spec': tadp-2016c2-grupo3 Coverage Results" MODIFIED="1474685288474" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tp-1-grupal/rspec" MODULE_NAME="tadp-2016c2-grupo3" />
     <SUITE FILE_PATH="coverage/tadp-2016c2-grupo3@TADsPEC_Mocking_Testear_que_al_mockear_se_reemplaza_el_comportamiento_de_un_metodo__tadp_2016c2_grupo3.coverage" NAME="TADsPEC_Mocking Testear que al mockear se reemplaza el comportamiento de un metodo: tadp-2016c2-grupo3 Coverage Results" MODIFIED="1474600901138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tp-1-grupal/rspec" MODULE_NAME="tadp-2016c2-grupo3" />
-    <SUITE FILE_PATH="coverage/tadp-2016c2-grupo3@tadspec_app.coverage" NAME="tadspec_app Coverage Results" MODIFIED="1474649101819" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tp-1-grupal/src" MODULE_NAME="tadp-2016c2-grupo3" />
+    <SUITE FILE_PATH="coverage/tadp-2016c2-grupo3@TADsPEC_Mocking_And_Spying__tadp_2016c2_grupo3.coverage" NAME="TADsPEC_Mocking_And_Spying: tadp-2016c2-grupo3 Coverage Results" MODIFIED="1474684723055" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tp-1-grupal/rspec" MODULE_NAME="tadp-2016c2-grupo3" />
+    <SUITE FILE_PATH="coverage/tadp-2016c2-grupo3@Run_spec__mocks_and_spies_spec___tadp_2016c2_grupo3.coverage" NAME="Run spec 'mocks_and_spies_spec': tadp-2016c2-grupo3 Coverage Results" MODIFIED="1474644210700" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tp-1-grupal/rspec" MODULE_NAME="tadp-2016c2-grupo3" />
+    <SUITE FILE_PATH="coverage/tadp-2016c2-grupo3@TADsPEC__tadp_2016c2_grupo3.coverage" NAME="TADsPEC: tadp-2016c2-grupo3 Coverage Results" MODIFIED="1474671940128" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tp-1-grupal/rspec" MODULE_NAME="tadp-2016c2-grupo3" />
+    <SUITE FILE_PATH="coverage/tadp-2016c2-grupo3@TADsPEC_Mocking_Testear_el_mockeo_y_desmockeo_del_metodo_de_una_clase__tadp_2016c2_grupo3.coverage" NAME="TADsPEC_Mocking Testear el mockeo y desmockeo del metodo de una clase: tadp-2016c2-grupo3 Coverage Results" MODIFIED="1474650214884" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tp-1-grupal/rspec" MODULE_NAME="tadp-2016c2-grupo3" />
+    <SUITE FILE_PATH="coverage/tadp-2016c2-grupo3@TADsPEC_Verificar_que_los_objetos_no_entienden_las_aserciones_antes_del_testing__tadp_2016c2_grupo3.coverage" NAME="TADsPEC Verificar que los objetos no entienden las aserciones antes del testing: tadp-2016c2-grupo3 Coverage Results" MODIFIED="1474645311521" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tp-1-grupal/rspec" MODULE_NAME="tadp-2016c2-grupo3" />
+    <SUITE FILE_PATH="coverage/tadp-2016c2-grupo3@tadspec_app.coverage" NAME="tadspec_app Coverage Results" MODIFIED="1474671285698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tp-1-grupal/src" MODULE_NAME="tadp-2016c2-grupo3" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -42,68 +48,7 @@
     <favorites_list name="tadp-2016c2-grupo3" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="mocking_and_spying.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tp-1-grupal/src/mocking_and_spying.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mocking_spying_spec.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tp-1-grupal/rspec/mocking_spying_spec.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="29" column="69" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="69" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="suites_de_prueba.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tp-1-grupal/rspec/suites_de_prueba.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tadspec_spec.rb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tp-1-grupal/rspec/tadspec_spec.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="deberia.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tp-1-grupal/src/deberia.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="93">
-              <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tadspec_app.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tp-1-grupal/src/tadspec_app.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -116,11 +61,13 @@
         <option value="$PROJECT_DIR$/tp-1-grupal/src/suite_de_prueba.rb" />
         <option value="$PROJECT_DIR$/tp-1-grupal/src/mocks_and_spies.rb" />
         <option value="$PROJECT_DIR$/tp-1-grupal/rspec/mocks_and_spies_spec.rb" />
+        <option value="$PROJECT_DIR$/tp-1-grupal/rspec/tadspec_spec.rb" />
         <option value="$PROJECT_DIR$/tp-1-grupal/src/tadspec_app.rb" />
         <option value="$PROJECT_DIR$/tp-1-grupal/rspec/suites_de_prueba.rb" />
-        <option value="$PROJECT_DIR$/tp-1-grupal/rspec/tadspec_spec.rb" />
-        <option value="$PROJECT_DIR$/tp-1-grupal/rspec/mocking_spying_spec.rb" />
+        <option value="$PROJECT_DIR$/tp-1-grupal/src/deberia.rb" />
         <option value="$PROJECT_DIR$/tp-1-grupal/src/mocking_and_spying.rb" />
+        <option value="$PROJECT_DIR$/tp-1-grupal/src/test_results.rb" />
+        <option value="$PROJECT_DIR$/tp-1-grupal/rspec/mocking_spying_spec.rb" />
       </list>
     </option>
   </component>
@@ -267,7 +214,7 @@
       <recent name="C:\Users\camil\Documents\GitHub\tadp-2016c2-grupo3\tp-1-grupal\rspec" />
     </key>
   </component>
-  <component name="RunManager" selected="RSpec.TADsPEC: tadp-2016c2-grupo3">
+  <component name="RunManager" selected="RSpec.Run spec 'tadspec_spec': tadp-2016c2-grupo3">
     <configuration default="false" name="TADsPEC Verificar que los objetos no entienden las aserciones antes del testing: tadp-2016c2-grupo3" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
       <predefined_log_file id="RUBY_RSPEC" enabled="true" />
       <module name="tadp-2016c2-grupo3" />
@@ -297,36 +244,22 @@
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
       <method />
     </configuration>
-    <configuration default="false" name="TADsPEC_Mocking: tadp-2016c2-grupo3" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
-      <predefined_log_file id="RUBY_RSPEC" enabled="true" />
+    <configuration default="false" name="tadspec_app" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
       <module name="tadp-2016c2-grupo3" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$/tp-1-grupal/rspec" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
-      <envs>
-        <env name="JRUBY_OPTS" value="-X+O" />
-      </envs>
+      <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="$MODULE_DIR$/tp-1-grupal/src" />
+      <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
       <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
       <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
       <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="C:\Users\camil\Documents\GitHub\tadp-2016c2-grupo3\tp-1-grupal\rspec\mocking_spying_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="TADsPEC_Mocking" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$MODULE_DIR$/tp-1-grupal/src/tadspec_app.rb" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
       <method />
     </configuration>
-    <configuration default="false" name="TADsPEC_Mocking: tadp-2016c2-grupo3 (1)" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
+    <configuration default="false" name="TADsPEC_Mocking Verificar que el metodo mockeado vuelve a ser el original luego del testing: tadp-2016c2-grupo3" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
       <predefined_log_file id="RUBY_RSPEC" enabled="true" />
       <module name="tadp-2016c2-grupo3" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -344,7 +277,7 @@
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/tp-1-grupal/rspec/mocking_spying_spec.rb" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="TADsPEC_Mocking" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="TADsPEC_Mocking Verificar que el metodo mockeado vuelve a ser el original luego del testing" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
@@ -355,22 +288,7 @@
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
       <method />
     </configuration>
-    <configuration default="false" name="tadspec_app" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
-      <module name="tadp-2016c2-grupo3" />
-      <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="$MODULE_DIR$/tp-1-grupal/src" />
-      <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
-      <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
-      <envs />
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
-      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$MODULE_DIR$/tp-1-grupal/src/tadspec_app.rb" />
-      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
-      <method />
-    </configuration>
-    <configuration default="false" name="TADsPEC Ejecutar todos los tests de una suite: tadp-2016c2-grupo3" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
+    <configuration default="false" name="TADsPEC_Mocking_And_Spying: tadp-2016c2-grupo3" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
       <predefined_log_file id="RUBY_RSPEC" enabled="true" />
       <module name="tadp-2016c2-grupo3" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -385,10 +303,39 @@
       <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
       <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/tp-1-grupal/rspec/tadspec_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/tp-1-grupal/rspec/mocking_spying_spec.rb" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="TADsPEC Ejecutar todos los tests de una suite" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="TADsPEC_Mocking_And_Spying" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Run spec 'mocking_spying_spec': tadp-2016c2-grupo3" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
+      <predefined_log_file id="RUBY_RSPEC" enabled="true" />
+      <module name="tadp-2016c2-grupo3" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$/tp-1-grupal/rspec" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs>
+        <env name="JRUBY_OPTS" value="-X+O" />
+      </envs>
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/tp-1-grupal/rspec/mocking_spying_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
@@ -513,6 +460,64 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="false" name="TADsPEC Ejecutar todos los tests de una suite: tadp-2016c2-grupo3" type="RSpecRunConfigurationType" factoryName="RSpec">
+      <predefined_log_file id="RUBY_RSPEC" enabled="true" />
+      <module name="tadp-2016c2-grupo3" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$/tp-1-grupal/rspec" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs>
+        <env name="JRUBY_OPTS" value="-X+O" />
+      </envs>
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/tp-1-grupal/rspec/tadspec_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="TADsPEC Ejecutar todos los tests de una suite" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="TADsPEC_Mocking Testear el mockeo y desmockeo del metodo de una clase: tadp-2016c2-grupo3" type="RSpecRunConfigurationType" factoryName="RSpec">
+      <predefined_log_file id="RUBY_RSPEC" enabled="true" />
+      <module name="tadp-2016c2-grupo3" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$/tp-1-grupal/rspec" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs>
+        <env name="JRUBY_OPTS" value="-X+O" />
+      </envs>
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/tp-1-grupal/rspec/mocking_spying_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="TADsPEC_Mocking Testear el mockeo y desmockeo del metodo de una clase" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
+      <method />
+    </configuration>
     <configuration default="false" name="TADsPEC_Mocking Testear que al mockear se reemplaza el comportamiento de un metodo: tadp-2016c2-grupo3 (1)" type="RSpecRunConfigurationType" factoryName="RSpec">
       <predefined_log_file id="RUBY_RSPEC" enabled="true" />
       <module name="tadp-2016c2-grupo3" />
@@ -542,26 +547,58 @@
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
       <method />
     </configuration>
-    <list size="11">
-      <item index="0" class="java.lang.String" itemvalue="RSpec.TADsPEC_Mocking Testear que al mockear se reemplaza el comportamiento de un metodo: tadp-2016c2-grupo3 (1)" />
-      <item index="1" class="java.lang.String" itemvalue="RSpec.Run spec 'mocks_and_spies_spec': tadp-2016c2-grupo3" />
-      <item index="2" class="java.lang.String" itemvalue="RSpec.TADsPEC Testear mockeo de un metodo: tadp-2016c2-grupo3" />
-      <item index="3" class="java.lang.String" itemvalue="RSpec.TADsPEC: tadp-2016c2-grupo3" />
-      <item index="4" class="java.lang.String" itemvalue="RSpec.TADsPEC_Mocking Testear que al mockear se reemplaza el comportamiento de un metodo: tadp-2016c2-grupo3" />
-      <item index="5" class="java.lang.String" itemvalue="RSpec.Run spec 'tadspec_spec': tadp-2016c2-grupo3" />
-      <item index="6" class="java.lang.String" itemvalue="RSpec.TADsPEC Verificar que los objetos no entienden las aserciones antes del testing: tadp-2016c2-grupo3" />
-      <item index="7" class="java.lang.String" itemvalue="RSpec.TADsPEC_Mocking: tadp-2016c2-grupo3" />
-      <item index="8" class="java.lang.String" itemvalue="RSpec.TADsPEC_Mocking: tadp-2016c2-grupo3 (1)" />
-      <item index="9" class="java.lang.String" itemvalue="Ruby.tadspec_app" />
-      <item index="10" class="java.lang.String" itemvalue="RSpec.TADsPEC Ejecutar todos los tests de una suite: tadp-2016c2-grupo3" />
+    <configuration default="false" name="TADsPEC_Mocking: tadp-2016c2-grupo3 (1)" type="RSpecRunConfigurationType" factoryName="RSpec">
+      <predefined_log_file id="RUBY_RSPEC" enabled="true" />
+      <module name="tadp-2016c2-grupo3" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$/tp-1-grupal/rspec" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs>
+        <env name="JRUBY_OPTS" value="-X+O" />
+      </envs>
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/tp-1-grupal/rspec/mocking_spying_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="TADsPEC_Mocking" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
+      <method />
+    </configuration>
+    <list size="14">
+      <item index="0" class="java.lang.String" itemvalue="RSpec.TADsPEC Ejecutar todos los tests de una suite: tadp-2016c2-grupo3" />
+      <item index="1" class="java.lang.String" itemvalue="RSpec.TADsPEC_Mocking Testear el mockeo y desmockeo del metodo de una clase: tadp-2016c2-grupo3" />
+      <item index="2" class="java.lang.String" itemvalue="RSpec.TADsPEC_Mocking Testear que al mockear se reemplaza el comportamiento de un metodo: tadp-2016c2-grupo3 (1)" />
+      <item index="3" class="java.lang.String" itemvalue="RSpec.TADsPEC_Mocking: tadp-2016c2-grupo3 (1)" />
+      <item index="4" class="java.lang.String" itemvalue="RSpec.Run spec 'mocks_and_spies_spec': tadp-2016c2-grupo3" />
+      <item index="5" class="java.lang.String" itemvalue="RSpec.TADsPEC Testear mockeo de un metodo: tadp-2016c2-grupo3" />
+      <item index="6" class="java.lang.String" itemvalue="RSpec.TADsPEC: tadp-2016c2-grupo3" />
+      <item index="7" class="java.lang.String" itemvalue="RSpec.TADsPEC_Mocking Testear que al mockear se reemplaza el comportamiento de un metodo: tadp-2016c2-grupo3" />
+      <item index="8" class="java.lang.String" itemvalue="RSpec.Run spec 'tadspec_spec': tadp-2016c2-grupo3" />
+      <item index="9" class="java.lang.String" itemvalue="RSpec.TADsPEC Verificar que los objetos no entienden las aserciones antes del testing: tadp-2016c2-grupo3" />
+      <item index="10" class="java.lang.String" itemvalue="Ruby.tadspec_app" />
+      <item index="11" class="java.lang.String" itemvalue="RSpec.TADsPEC_Mocking Verificar que el metodo mockeado vuelve a ser el original luego del testing: tadp-2016c2-grupo3" />
+      <item index="12" class="java.lang.String" itemvalue="RSpec.TADsPEC_Mocking_And_Spying: tadp-2016c2-grupo3" />
+      <item index="13" class="java.lang.String" itemvalue="RSpec.Run spec 'mocking_spying_spec': tadp-2016c2-grupo3" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="RSpec.TADsPEC Ejecutar todos los tests de una suite: tadp-2016c2-grupo3" />
-        <item index="1" class="java.lang.String" itemvalue="Ruby.tadspec_app" />
-        <item index="2" class="java.lang.String" itemvalue="RSpec.TADsPEC_Mocking: tadp-2016c2-grupo3 (1)" />
-        <item index="3" class="java.lang.String" itemvalue="RSpec.TADsPEC Verificar que los objetos no entienden las aserciones antes del testing: tadp-2016c2-grupo3" />
-        <item index="4" class="java.lang.String" itemvalue="RSpec.TADsPEC_Mocking: tadp-2016c2-grupo3" />
+        <item index="0" class="java.lang.String" itemvalue="RSpec.Run spec 'mocking_spying_spec': tadp-2016c2-grupo3" />
+        <item index="1" class="java.lang.String" itemvalue="RSpec.TADsPEC_Mocking_And_Spying: tadp-2016c2-grupo3" />
+        <item index="2" class="java.lang.String" itemvalue="Ruby.tadspec_app" />
+        <item index="3" class="java.lang.String" itemvalue="RSpec.TADsPEC_Mocking Verificar que el metodo mockeado vuelve a ser el original luego del testing: tadp-2016c2-grupo3" />
+        <item index="4" class="java.lang.String" itemvalue="RSpec.TADsPEC Verificar que los objetos no entienden las aserciones antes del testing: tadp-2016c2-grupo3" />
       </list>
     </recent_temporary>
   </component>
@@ -582,50 +619,50 @@
       <workItem from="1474248300912" duration="77000" />
       <workItem from="1474299416109" duration="7741000" />
       <workItem from="1474584391157" duration="19457000" />
-      <workItem from="1474642748136" duration="6331000" />
+      <workItem from="1474642748136" duration="30859000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TADsPEC_Ejecutar_todos_los_tests_de_una_suite__tadp-2016c2-grupo3 - 2016.09.23 at 13h 45m 14s.xml">
-      <configuration name="TADsPEC Ejecutar todos los tests de una suite: tadp-2016c2-grupo3" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="Run_spec_'mocking_spying_spec'__tadp-2016c2-grupo3 - 2016.09.23 at 23h 47m 23s.xml">
+      <configuration name="Run spec 'mocking_spying_spec': tadp-2016c2-grupo3" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="TADsPEC_Mocking_Testear_que_al_mockear_se_reemplaza_el_comportamiento_de_un_metodo__tadp-2016c2-grupo3_(1) - 2016.09.23 at 13h 42m 42s.xml">
-      <configuration name="TADsPEC_Mocking Testear que al mockear se reemplaza el comportamiento de un metodo: tadp-2016c2-grupo3 (1)" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="Run_spec_'mocking_spying_spec'__tadp-2016c2-grupo3 - 2016.09.23 at 23h 47m 47s.xml">
+      <configuration name="Run spec 'mocking_spying_spec': tadp-2016c2-grupo3" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="TADsPEC_Mocking__tadp-2016c2-grupo3_(1) - 2016.09.23 at 13h 42m 54s.xml">
-      <configuration name="TADsPEC_Mocking: tadp-2016c2-grupo3 (1)" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="Run_spec_'mocking_spying_spec'__tadp-2016c2-grupo3 - 2016.09.23 at 23h 48m 08s.xml">
+      <configuration name="Run spec 'mocking_spying_spec': tadp-2016c2-grupo3" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="TADsPEC_Mocking__tadp-2016c2-grupo3_(1) - 2016.09.23 at 13h 43m 27s.xml">
-      <configuration name="TADsPEC_Mocking: tadp-2016c2-grupo3 (1)" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="Run_spec_'tadspec_spec'__tadp-2016c2-grupo3 - 2016.09.23 at 23h 48m 15s.xml">
+      <configuration name="Run spec 'tadspec_spec': tadp-2016c2-grupo3" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="TADsPEC_Mocking__tadp-2016c2-grupo3_(1) - 2016.09.23 at 13h 44m 57s.xml">
-      <configuration name="TADsPEC_Mocking: tadp-2016c2-grupo3 (1)" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="TADsPEC_Mocking_And_Spying__tadp-2016c2-grupo3 - 2016.09.23 at 23h 36m 00s.xml">
+      <configuration name="TADsPEC_Mocking_And_Spying: tadp-2016c2-grupo3" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="TADsPEC__tadp-2016c2-grupo3 - 2016.09.23 at 13h 38m 51s.xml">
-      <configuration name="TADsPEC: tadp-2016c2-grupo3" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="TADsPEC_Mocking_And_Spying__tadp-2016c2-grupo3 - 2016.09.23 at 23h 36m 12s.xml">
+      <configuration name="TADsPEC_Mocking_And_Spying: tadp-2016c2-grupo3" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="TADsPEC__tadp-2016c2-grupo3 - 2016.09.23 at 13h 41m 34s.xml">
-      <configuration name="TADsPEC: tadp-2016c2-grupo3" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="TADsPEC_Mocking_And_Spying__tadp-2016c2-grupo3 - 2016.09.23 at 23h 37m 06s.xml">
+      <configuration name="TADsPEC_Mocking_And_Spying: tadp-2016c2-grupo3" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="TADsPEC__tadp-2016c2-grupo3 - 2016.09.23 at 13h 41m 52s.xml">
-      <configuration name="TADsPEC: tadp-2016c2-grupo3" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="TADsPEC_Mocking_And_Spying__tadp-2016c2-grupo3 - 2016.09.23 at 23h 37m 37s.xml">
+      <configuration name="TADsPEC_Mocking_And_Spying: tadp-2016c2-grupo3" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="TADsPEC__tadp-2016c2-grupo3 - 2016.09.23 at 13h 42m 21s.xml">
-      <configuration name="TADsPEC: tadp-2016c2-grupo3" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="TADsPEC_Mocking_And_Spying__tadp-2016c2-grupo3 - 2016.09.23 at 23h 37m 52s.xml">
+      <configuration name="TADsPEC_Mocking_And_Spying: tadp-2016c2-grupo3" configurationId="RSpecRunConfigurationType" />
     </history-entry>
-    <history-entry file="TADsPEC__tadp-2016c2-grupo3 - 2016.09.23 at 13h 45m 26s.xml">
-      <configuration name="TADsPEC: tadp-2016c2-grupo3" configurationId="RSpecRunConfigurationType" />
+    <history-entry file="TADsPEC_Mocking_And_Spying__tadp-2016c2-grupo3 - 2016.09.23 at 23h 38m 43s.xml">
+      <configuration name="TADsPEC_Mocking_And_Spying: tadp-2016c2-grupo3" configurationId="RSpecRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33988000" />
+    <option name="totallyTimeSpent" value="58516000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17569546" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17569546" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -656,7 +693,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -789,58 +828,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tp-1-grupal/src/test_results.rb">
+    <entry file="file://$APPLICATION_HOME_DIR$/rubystubs23/string.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="22" column="17" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="17" />
+        <state relative-caret-position="-6128">
+          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tp-1-grupal/src/deberia.rb">
+    <entry file="file://C:/Ruby23-x64/lib/ruby/2.3.0/tk/encodedstr.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+        <state relative-caret-position="200">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tp-1-grupal/rspec/mocking_spying_spec.rb">
+    <entry file="file://C:/Ruby23-x64/bin/rspec">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="29" column="69" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tp-1-grupal/src/mocking_and_spying.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tp-1-grupal/src/tadspec_app.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+        <state relative-caret-position="374">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tp-1-grupal/rspec/suites_de_prueba.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
+        <state relative-caret-position="207">
+          <caret line="365" column="64" selection-start-line="365" selection-start-column="64" selection-end-line="365" selection-end-column="64" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tp-1-grupal/rspec/tadspec_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+        <state relative-caret-position="824">
+          <caret line="88" column="20" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp-1-grupal/src/mocking_and_spying.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1057">
+          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp-1-grupal/src/deberia.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2043">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp-1-grupal/src/test_results.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp-1-grupal/rspec/mocking_spying_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="74" column="53" selection-start-line="74" selection-start-column="53" selection-end-line="74" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp-1-grupal/src/tadspec_app.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>

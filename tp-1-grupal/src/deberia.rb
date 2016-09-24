@@ -4,9 +4,9 @@
 class AssertionMethod
   attr_accessor :mensaje, :bloque
 
-  def initialize(mensaje, proc_block)
+  def initialize(mensaje, prok)
     self.mensaje = mensaje
-    self.bloque = proc_block
+    self.bloque = prok
   end
 
   def call(contexto)
@@ -17,40 +17,6 @@ end
 #-----------------------------------------------------
 #  COMPORTAMIENTO NECESARIO PARA EL MÉTODO 'DEBERÍA':
 #-----------------------------------------------------
-module AssertionConfiguration
-  def mayor_a(valor)
-    AssertionMethod.new(
-        "fuera mayor a '#{valor}'",
-        Proc.new { |x| next x > valor })
-  end
-
-  def menor_a(valor)
-    AssertionMethod.new(
-        "fuera menor a '#{valor}'",
-        Proc.new { |x| next x < valor })
-  end
-
-  def uno_de_los_varargs(*arguments)
-    AssertionMethod.new(
-        "fuera uno de estos valores '#{arguments}'",
-        Proc.new { |x| next *arguments.include?(x) })
-  end
-
-  def uno_de_la_lista(lista)
-    AssertionMethod.new(
-        "estuviese contenido en '#{lista}'",
-        Proc.new { |x| next lista.include?(x) })
-  end
-
-  def uno_de_estos(*arguments)
-    if arguments.length > 1
-      uno_de_los_varargs(arguments)
-    else
-      uno_de_la_lista(arguments.first)
-    end
-  end
-end
-
 module Assertion
   def ser(argument)
     if argument.is_a?(AssertionMethod)
@@ -94,7 +60,6 @@ module Assertion
     end
   end
 
-  # TODO: nil case
   def tener_un_atributo(atributo, argument)
     if argument.is_a?(AssertionMethod)
       AssertionMethod.new(
@@ -114,6 +79,40 @@ module Assertion
   end
 end
 
+module AssertionConfiguration
+  def mayor_a(valor)
+    AssertionMethod.new(
+        "fuera mayor a '#{valor}'",
+        Proc.new { |x| next x > valor })
+  end
+
+  def menor_a(valor)
+    AssertionMethod.new(
+        "fuera menor a '#{valor}'",
+        Proc.new { |x| next x < valor })
+  end
+
+  def uno_de_los_varargs(*arguments)
+    AssertionMethod.new(
+        "fuera uno de estos valores '#{arguments}'",
+        Proc.new { |x| next *arguments.include?(x) })
+  end
+
+  def uno_de_la_lista(lista)
+    AssertionMethod.new(
+        "estuviese contenido en '#{lista}'",
+        Proc.new { |x| next lista.include?(x) })
+  end
+
+  def uno_de_estos(*arguments)
+    if arguments.length > 1
+      uno_de_los_varargs(arguments)
+    else
+      uno_de_la_lista(arguments.first)
+    end
+  end
+end
+
 module Deberia
   include Assertion
 
@@ -126,27 +125,12 @@ module Deberia
   def method_missing(symbol, *args)
     method_size = symbol.to_s.length
     if symbol.to_s[0..3] == 'ser_'
-      ser_una_consulta(((symbol.to_s[4..method_size]) + '?').to_sym)
+      self.ser_una_consulta(((symbol.to_s[4..method_size]) + '?').to_sym)
     elsif symbol.to_s[0..5] == 'tener_'
-      tener_un_atributo(symbol.to_s[6..method_size].to_sym, args[0])
+      self.tener_un_atributo(symbol.to_s[6..method_size].to_sym, args[0])
     else
       super(symbol, args)
     end
-  end
-end
-
-module ModuleRemover
-  def remove_deberia_module
-    Deberia.instance_methods.each {|method|
-      singleton_class.class_eval { undef_method(method.to_sym) if method.to_sym != :method_missing }}
-  end
-
-  def remove_deberia_method
-    self.instance_eval { undef :deberia }
-  end
-
-  def delete_deberia_method
-    self.singleton_class.send :undef_method, :deberia
   end
 end
 

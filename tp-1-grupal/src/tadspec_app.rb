@@ -41,11 +41,13 @@ class TADsPec
 
   def self.preparar_contexto_para_testeo(suite)
     agregar_metodos_de_testing(suite, AssertionConfiguration)
+    agregar_metodos_de_testing(suite, Spying)
     agregar_metodos_de_testing(Object, Deberia)
   end
 
   def self.restaurar_contexto_original(suite)
     remover_metodos_de_testing(suite, AssertionConfiguration)
+    remover_metodos_de_testing(suite, Spying)
     remover_metodos_de_testing(Object, Deberia)
     self.desmockear_clases if class_variable_defined?(:@@mocked_classes)
   end
@@ -66,6 +68,7 @@ class TADsPec
   def self.desmockear_clases
     @@mocked_classes.each do |klass|
       klass.desmockear
+      klass.desmockear unless klass.mocked_methods.empty?
       @@mocked_classes.delete(klass)
     end
   end
