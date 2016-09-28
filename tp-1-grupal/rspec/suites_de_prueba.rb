@@ -1,3 +1,4 @@
+# encoding: utf-8
 #--------------------------------------
 # FIXTURE DE DATOS PARA HACER PRUEBAS:
 #--------------------------------------
@@ -35,23 +36,23 @@ class MiSuiteDeTests
 
   # pasa
   def testear_que_7_es_7
-    7.deberia ser 7
+    7.deberia ser igual_a 7
   end
 
   # falla
   def testear_que_hola_es_chau
-    'Hola'.deberia ser 'Chau'
+    'Hola'.deberia ser igual_a'Chau'
   end
 
   # pasa
   def testear_que_la_edad_de_juan_es_22
     juan = Persona.new(22)
-    juan.edad.deberia ser 22
+    juan.edad.deberia ser igual_a 22
   end
 
   # falla
   def testear_que_true_es_false
-    true.deberia ser false
+    true.deberia ser igual_a false
   end
 
   # pasa

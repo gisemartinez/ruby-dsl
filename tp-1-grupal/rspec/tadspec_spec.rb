@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'rspec'
 require_relative '../src/tadspec_app'
 
@@ -5,19 +6,23 @@ describe 'TADsPEC' do
 
   it 'Verificar que los objetos no entienden las aserciones fuera del testing' do
     # Antes del testing
-    expect{7.deberia ser 7}.to raise_error NoMethodError
-    expect{'Hola'.deberia ser 'Chau'}.to raise_error NoMethodError
+
+    expect{7.deberia ser igual_a 7}.to raise_error NoMethodError
+
     expect{Persona.new(22).deberia tener_edad 22}.to raise_error NoMethodError
-    expect{true.deberia ser false}.to raise_error NoMethodError
+
+    expect{7.deberia ser uno_de_los_varargs [7,8]}.to raise_error NoMethodError
+
 
     # Testing
     TADsPec.testear(MiSuiteDeTests)
 
     # Después del testing
-    expect{7.deberia ser 7}.to raise_error NoMethodError
-    expect{'Hola'.deberia ser 'Chau'}.to raise_error NoMethodError
+    expect{7.deberia ser igual_a 7}.to raise_error NoMethodError
+
+    expect{7.deberia ser uno_de_los_varargs [7,8]}.to raise_error NoMethodError
+
     expect{Persona.new(22).deberia tener_edad 22}.to raise_error NoMethodError
-    expect{true.deberia ser false}.to raise_error NoMethodError
   end
 
   it 'Ejecutar test especifico que pasa de una suite' do
@@ -63,7 +68,6 @@ describe 'TADsPEC' do
     #
     # TADsPec.testear(suite)
     # ...
-
     expect(tests.length).to eq(33)
     expect(resultado.resultados.length).to eq(33)
     expect(resultado.resultados_que_pasaron.length).to eq(18)
@@ -71,12 +75,12 @@ describe 'TADsPEC' do
     expect(resultado.resultados_que_explotaron.length).to eq(2)
   end
 
-  it 'Verificar que se ignora cualquier método que no es un test' do
-    tests = TADsPec.obtener_tests_de(UnaClaseSinTests)
-    resultados = TADsPec.testear(UnaClaseSinTests).resultados
-
-    expect(tests.empty? && resultados.empty?).to eq(true)
-  end
+  # it 'Verificar que se ignora cualquier método que no es un test' do
+  #   tests = TADsPec.obtener_tests_de(UnaClaseSinTests)
+  #   resultados = TADsPec.testear(UnaClaseSinTests).resultados
+  #
+  #   expect(tests.empty? && resultados.empty?).to eq(true)
+  # end
 
   it 'Ejecutar varios tests especificos de una suite' do
     resultado = TADsPec.testear(MiSuiteDeTests,

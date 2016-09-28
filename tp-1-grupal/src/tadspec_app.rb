@@ -60,7 +60,7 @@ class TADsPec
   #  van a desaparecer en la ejecución del siguiente test o en la siguiente instancia?
 
   def self.agregar_metodos_de_testing(klass, modulo)
-    klass.include modulo
+    klass.send(:include,modulo)
     # modulo.instance_methods(true).each do |symbol|
     #   method = modulo.instance_method(symbol)
     #   klass.send :define_method, symbol, method
@@ -116,7 +116,8 @@ class TADsPec
 
   def self.correr_test_de_una_suite(suite, metodo)
     if (es_un_test?(metodo))
-      suite.new.send metodo
+      suite_instance = suite.new.extend Assertion
+      suite_instance.send metodo
     end
   end
 

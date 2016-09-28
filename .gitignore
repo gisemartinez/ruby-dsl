@@ -1,5 +1,6 @@
 # JetBrains .idea directory:
-*/.idea/*
+.idea/
+
 
 # File-based project format:
 */*.iws

@@ -1,3 +1,4 @@
+# encoding: utf-8
 #-------------------------------------------
 #  DATA CLASS PARA LOS MÉTODOS DE ASERCIÓN:
 #-------------------------------------------
@@ -24,13 +25,13 @@ module Assertion
     # (si les molesta como a mi tener este if porque rompe el polimorfismo del parametro del "ser"
     #   pueden alterar el dsl para que usar equals sea "3.deberia ser igual_a 1")
     # ¿Si el nuevo dsl anterior fuera el caso, que comportamiento tiene el "ser"? ¿para qué sirve?
-    if argument.is_a?(AssertionMethod)
+    #if argument.is_a?(AssertionMethod)
       argument
-    else
-      AssertionMethod.new(
-          "fuera igual a '#{argument}'",
-          Proc.new { |x| next x == argument })
-    end
+    # else
+    #   AssertionMethod.new(
+    #       "fuera igual a '#{argument}'",
+    #       Proc.new { |x| next x == argument })
+    # end
   end
 
   def entender(mensaje)
@@ -46,12 +47,9 @@ module Assertion
           begin
             prok.call
           rescue nombre_excepcion
-            next true
-          rescue StandardError
-          # TODO: esto es redundante con el else de abajo
-            next false
+            true
           else
-            next false
+            false
           end
         })
   end
@@ -83,6 +81,17 @@ module Assertion
         "fuera '#{consulta}'",
         Proc.new { |x| next x.send(consulta) })
   end
+
+  def method_missing(symbol, *args)
+    method_size = symbol.to_s.length
+    if symbol.to_s[0..3] == 'ser_'
+      self.ser_una_consulta(((symbol.to_s[4..method_size]) + '?').to_sym)
+    elsif symbol.to_s[0..5] == 'tener_'
+      self.tener_un_atributo(symbol.to_s[6..method_size].to_sym, args[0])
+    else
+      super(symbol, args)
+    end
+  end
 end
 
 module AssertionConfiguration
@@ -96,6 +105,12 @@ module AssertionConfiguration
     AssertionMethod.new(
         "fuera menor a '#{valor}'",
         Proc.new { |x| next x < valor })
+  end
+
+  def igual_a(valor)
+    AssertionMethod.new(
+        "fuera igual a '#{valor}'",
+        Proc.new { |x| next x == valor })
   end
 
   def uno_de_los_varargs(*arguments)
@@ -121,7 +136,7 @@ end
 
 module Deberia
   # TODO: CUIDADO! Cualquier objetos solo necesitan entender "debería"
-  include Assertion
+  #include Assertion
 
   def deberia(assertion)
     assertion_result = assertion.call(self)
@@ -131,16 +146,16 @@ module Deberia
 
   # TODO: CUIDADO! Este method missing aplicaría a todos los objetos!
   #  Solo necesita entender "ser_*" y "tener_*" la suite de test Y SOLO la suite de test
-  def method_missing(symbol, *args)
-    method_size = symbol.to_s.length
-    if symbol.to_s[0..3] == 'ser_'
-      self.ser_una_consulta(((symbol.to_s[4..method_size]) + '?').to_sym)
-    elsif symbol.to_s[0..5] == 'tener_'
-      self.tener_un_atributo(symbol.to_s[6..method_size].to_sym, args[0])
-    else
-      super(symbol, args)
-    end
-  end
+  # def method_missing(symbol, *args)
+  #   method_size = symbol.to_s.length
+  #   if symbol.to_s[0..3] == 'ser_'
+  #     self.ser_una_consulta(((symbol.to_s[4..method_size]) + '?').to_sym)
+  #   elsif symbol.to_s[0..5] == 'tener_'
+  #     self.tener_un_atributo(symbol.to_s[6..method_size].to_sym, args[0])
+  #   else
+  #     super(symbol, args)
+  #   end
+  # end
 end
 
 #----------------------------------------------------

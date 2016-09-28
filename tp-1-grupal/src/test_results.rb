@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'colorize'
 require 'colorized_string'
 
