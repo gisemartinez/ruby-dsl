@@ -35,6 +35,7 @@ class MiSuiteDeTests
   # Explotan: 0
 
   # pasa
+  $@
   def testear_que_7_es_7
     7.deberia ser igual_a 7
   end
@@ -297,7 +298,7 @@ class PersonaHomeTests
 
     viejos = PersonaHome.new.personas_viejas
 
-    viejos.deberia ser [nico, axel]
+    viejos.deberia ser igual_a [nico, axel]
   end
 
   # pasa
@@ -306,7 +307,7 @@ class PersonaHomeTests
 
     mensaje = PersonaHome.new.devolver_un_string
 
-    mensaje.deberia ser 'Fui mockeado!'
+    mensaje.deberia ser igual_a  'Fui mockeado!'
   end
 
   # pasa
@@ -328,9 +329,9 @@ class PersonaHomeTests
     mensaje = personaHome.devolver_un_string
     vocales = personaHome.letras_vocales
 
-    viejos.deberia ser [nico, axel]
-    mensaje.deberia ser 'Fui mockeado!'
-    vocales.deberia ser %w(a e i o u)
+    viejos.deberia ser igual_a [nico, axel]
+    mensaje.deberia ser igual_a 'Fui mockeado!'
+    vocales.deberia ser igual_a %w(a e i o u)
   end
 end
 

@@ -54,11 +54,11 @@ module Assertion
         })
   end
 
-  def obtener_atributo(atributo)
-    if (self.respond_to?(atributo))
-      self.send(atributo)
-    elsif self.instance_variable_defined?("@#{atributo}")
-      self.instance_variable_get("@#{atributo}")
+  def obtener_atributo(instancia,atributo)
+    if (instancia.respond_to?(atributo))
+      instancia.send(atributo)
+    elsif instancia.instance_variable_defined?("@#{atributo}")
+      instancia.instance_variable_get("@#{atributo}")
     else
       nil
     end
@@ -68,11 +68,11 @@ module Assertion
     if argument.is_a?(AssertionMethod)
       AssertionMethod.new(
           ": atributo '#{atributo}' #{argument.mensaje}",
-          Proc.new { |x| next argument.call(x.obtener_atributo(atributo)) })
+          Proc.new { |x| self.obtener_atributo(x,atributo) })
     else
       AssertionMethod.new(
           ": atributo '#{atributo}' fuera igual a '#{argument}'",
-          Proc.new { |x| next x.obtener_atributo(atributo) == argument })
+          Proc.new { |x| self.obtener_atributo(x,atributo) == argument })
     end
   end
 
