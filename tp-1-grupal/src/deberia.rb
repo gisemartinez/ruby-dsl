@@ -116,7 +116,7 @@ module AssertionConfiguration
   def uno_de_los_varargs(*arguments)
     AssertionMethod.new(
         "fuera uno de estos valores '#{arguments}'",
-        Proc.new { |x| next *arguments.include?(x) })
+        Proc.new { |x| arguments.include?(x) })
   end
 
   def uno_de_la_lista(lista)

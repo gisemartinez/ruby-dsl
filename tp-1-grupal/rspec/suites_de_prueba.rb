@@ -129,20 +129,20 @@ class MiSuiteDeTests
   # pasa
   def testear_que_juan_tiene_22_anios
     juan = Persona.new(22)
-    juan.deberia tener_edad 22
+    juan.deberia tener_edad igual_a 22
   end
 
   # falla
   def testear_que_juan_tiene_ingreso_25000
     juan = Persona.new(22)
     juan.ingreso = 10000
-    juan.deberia tener_ingreso 25000
+    juan.deberia tener_ingreso igual_a 25000
   end
 
   # falla: no hay atributo 'nombre'
   def testear_que_juan_tiene_nombre_juan
     juan = Persona.new(22)
-    juan.deberia tener_nombre "juan"
+    juan.deberia tener_nombre igual_a "juan"
   end
 
   # pasa

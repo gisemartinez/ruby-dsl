@@ -107,7 +107,7 @@ class TADsPec
 
       # TODO: En lugar de atrapar StandardError deberían atrapar cualquier tipo de error que no haya sido
       #   AssertionError (sino podrían romper la ejecución de los tests si uno falla con algo que no sea StandardError)
-      rescue StandardError => mensaje_excepcion
+      rescue => mensaje_excepcion
         # ERROR ANORMAL:
         resultadoTest.test_exploto suite, test, mensaje_excepcion
       end
